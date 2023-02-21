@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".AdminDashboard">
 
+    <Button
+        android:id="@+id/verifyProperty"
+        android:layout_width="292dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/frame_14"
+        android:text="Verify Property"
+        android:textColor="#ffffff"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/adminLogout"
+        android:layout_width="292dp"
+        android:layout_height="50dp"
+        android:background="@drawable/frame_14"
+        android:text="Logout"
+        android:textColor="#ffffff"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyProperty"
+        app:layout_constraintVertical_bias="0.244" />
 </androidx.constraintlayout.widget.ConstraintLayout>
