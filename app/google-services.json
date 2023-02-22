@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "293776599139",
+    "project_id": "kwako-bbb1c",
+    "storage_bucket": "kwako-bbb1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293776599139:android:45e0376dfe617df5b53056",
+        "android_client_info": {
+          "package_name": "com.example.kwako"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293776599139-e81nhvarvji9cb3n86req8n4j6dd1fsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCpPM59WNCC9Zffm2mJ3dN3JYa8fuPCkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293776599139-e81nhvarvji9cb3n86req8n4j6dd1fsd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
