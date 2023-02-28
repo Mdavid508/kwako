@@ -1,3 +1,4 @@
+
 <vector
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
@@ -15,12 +16,9 @@
 
         <path
             android:pathData="M0 0V35H292V0"
-            android:fillColor="#F3EDFA"
+            android:fillColor="#161313"
             />
 
     </group>
 
-
-
 </vector>
-

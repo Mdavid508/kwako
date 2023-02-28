@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+*_LOCAL_*
+*_BASE_*
+*_REMOTE_*
+*_BACKUP_*
+*.orig
