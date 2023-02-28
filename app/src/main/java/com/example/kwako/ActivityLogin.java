@@ -2,6 +2,11 @@ package com.example.kwako;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
+public class ActivityLogin extends AppCompatActivity {
+
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,11 +31,16 @@ public class ActivityLogin extends AppCompatActivity {
     TextView tvRegister;
     FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
+
+        // TODO: Add logic for button click event
 
         // initialize views
         edtEmail = findViewById(R.id.email);
@@ -87,6 +97,7 @@ public class ActivityLogin extends AppCompatActivity {
             Intent intent = new Intent(ActivityLogin.this, ActivityRegister.class);
             startActivity(intent);
         });
+
 
     }
 }

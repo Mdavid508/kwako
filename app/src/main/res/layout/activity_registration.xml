@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Username"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityRegistration">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="53.33dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/customer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRegisterCustomer"
+        android:layout_width="287dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:text="Register as a Customer to increase your chances of getting yourself a nice apartment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="42dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="Email"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterCustomer"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Username"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
+        app:layout_constraintEnd_toEndOf="@+id/editTextUsername"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextUsername"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPhoneNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewPhoneNo"
+        android:layout_width="117dp"
+        android:layout_height="22dp"
+        android:text="Phone Number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNo"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="@+id/editTextPhoneNo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <EditText
+        android:id="@+id/editTextPhoneNo"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPhonetic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
+
+    <TextView
+        android:id="@+id/textViewPassword"
+        android:layout_width="74dp"
+        android:layout_height="22dp"
+        android:text="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="39dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewRepeatPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewPassword"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewRepeatPassword"
+        android:layout_width="132dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
+        android:text="Repeat Password"
+        app:layout_constraintBottom_toTopOf="@+id/editTextRepeatPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editTextRepeatPassword"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="@+id/editTextRepeatPassword" />
+
+    <EditText
+        android:id="@+id/editTextRepeatPassword"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="608dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="68dp"
+        android:background="@drawable/edt_bgbutton"
+        android:text="Register"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRepeatPassword"
+        app:layout_constraintVertical_bias="0.203" />
+
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="Do You Have An Account? Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
