@@ -60,6 +60,8 @@
         android:layout_height="48dp"
         android:background="@drawable/edt_bg"
         android:ems="10"
+        android:textAlignment="textStart"
+        android:paddingLeft="10dp"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
