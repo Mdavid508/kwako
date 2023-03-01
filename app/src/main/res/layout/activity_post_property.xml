@@ -7,7 +7,7 @@
     tools:context=".PostProperty">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/previousImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -27,7 +27,7 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.334"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/previousImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -139,7 +139,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nextbtn"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
