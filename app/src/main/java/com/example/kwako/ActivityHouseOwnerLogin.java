@@ -11,9 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ActivityLogin extends AppCompatActivity {
+public class ActivityHouseOwnerLogin extends AppCompatActivity {
 
 
     // declare views
@@ -29,7 +28,7 @@ public class ActivityLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_houseowner_login);
 
 
         // initialize views
@@ -77,14 +76,14 @@ public class ActivityLogin extends AppCompatActivity {
 
                 // Login was successful. Move to main activity
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
+                Intent intent = new Intent(ActivityHouseOwnerLogin.this, MainActivity.class);
                 startActivity(intent);
             });
         });
 
         // move to Register activity if user has no account
         tvRegister.setOnClickListener(view->{
-            Intent intent = new Intent(ActivityLogin.this, ActivityRegister.class);
+            Intent intent = new Intent(ActivityHouseOwnerLogin.this, ActivityHouseOwnerRegister.class);
             startActivity(intent);
         });
 

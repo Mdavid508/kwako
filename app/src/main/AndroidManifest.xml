@@ -28,10 +28,10 @@
             android:value="YOUR_API_KEY" />
 
         <activity
-            android:name=".ActivityLogin"
+            android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
         <activity
-            android:name=".ActivityRegister"
+            android:name=".ActivityHouseOwnerRegister"
             android:exported="false" />
         <activity
             android:name=".PostProperty"
