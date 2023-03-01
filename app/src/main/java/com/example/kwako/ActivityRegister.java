@@ -121,7 +121,7 @@ public class ActivityRegister extends AppCompatActivity {
 
         // move to login activity if the user already has an account
         tvLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(ActivityRegister.this, ActivityLogin.class);
+            Intent intent = new Intent(ActivityRegister.this, ActivityCustomerLogin.class);
             startActivity(intent);
         });
 
