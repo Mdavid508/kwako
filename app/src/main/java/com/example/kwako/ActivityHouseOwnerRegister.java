@@ -15,7 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class ActivityRegister extends AppCompatActivity {
+public class ActivityHouseOwnerRegister extends AppCompatActivity {
 
     // declare views
     EditText edtUsername, edtEmail, edtPassword, edtCPassword, edtPhone;
@@ -30,7 +30,7 @@ public class ActivityRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_houseowner_register);
 
         // initialize views
         edtUsername = findViewById(R.id.username);
@@ -113,7 +113,7 @@ public class ActivityRegister extends AppCompatActivity {
 
                     // save successful, move to mainActivity
                     Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ActivityRegister.this, MainActivity.class);
+                    Intent intent = new Intent(ActivityHouseOwnerRegister.this, MainActivity.class);
                     startActivity(intent);
                 });
             });
@@ -121,7 +121,7 @@ public class ActivityRegister extends AppCompatActivity {
 
         // move to login activity if the user already has an account
         tvLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(ActivityRegister.this, ActivityCustomerLogin.class);
+            Intent intent = new Intent(ActivityHouseOwnerRegister.this, ActivityHouseOwnerLogin.class);
             startActivity(intent);
         });
 
