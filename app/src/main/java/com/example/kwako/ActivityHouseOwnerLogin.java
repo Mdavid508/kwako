@@ -10,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-
-public class ActivityCustomerLogin extends AppCompatActivity {
+import com.google.firebase.firestore.FirebaseFirestore;
+// declare views
+public class ActivityHouseOwnerLogin extends AppCompatActivity {
     EditText edtEmail;
     EditText edtPassword;
     Button btnLogin;
@@ -26,18 +26,16 @@ public class ActivityCustomerLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_login);
-
+        setContentView(R.layout.activity_houseowner_login);
         // TODO: Add logic for button click event
 
         // initialize views
-        edtEmail = findViewById(R.id.editTextEmail);
-        edtPassword = findViewById(R.id.editTextPassword);
+        edtEmail = findViewById(R.id.email);
+        edtPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
-        tvRegister = findViewById(R.id.textViewRegister);
+        tvRegister = findViewById(R.id.btnLogin);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
-
 
         // listen for btnRegister click
         btnLogin.setOnClickListener(v -> {
@@ -74,16 +72,17 @@ public class ActivityCustomerLogin extends AppCompatActivity {
 
                 // Login was successful. Move to main activity
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(ActivityHouseOwnerLogin.this, MainActivity.class);
+                startActivity(intent);
             });
         });
 
         // move to Register activity if user has no account
-        tvRegister.setOnClickListener(view -> {
-            Intent intent = new Intent(ActivityCustomerLogin.this, ActivityCustomerRegistration.class);
+        tvRegister.setOnClickListener(view->{
+            Intent intent = new Intent(ActivityHouseOwnerLogin.this, ActivityHouseOwnerRegister.class);
             startActivity(intent);
         });
 
     }
+
     }
