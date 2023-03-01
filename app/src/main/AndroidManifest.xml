@@ -28,10 +28,16 @@
             android:value="YOUR_API_KEY" />
 
         <activity
-            android:name=".ActivityLogin"
-            android:exported="false" />
+            android:name=".ActivityHouseOwnerLogin"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".ActivityRegister"
+            android:name=".ActivityHouseOwnerRegister"
             android:exported="false" />
         <activity
             android:name=".UploadImages"
@@ -69,20 +75,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityRegistration"
+            android:name=".ActivityCustomerRegistration"
             android:exported="false" />
         <activity
-            android:name=".ActivityLogin"
+            android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
