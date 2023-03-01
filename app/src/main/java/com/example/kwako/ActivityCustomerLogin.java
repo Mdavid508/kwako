@@ -1,12 +1,6 @@
 package com.example.kwako;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
-public class ActivityCustomerLogin extends AppCompatActivity {
-
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +11,10 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+// declare views
 
-public class ActivityLogin extends AppCompatActivity {
 
-
-    // declare views
+public class ActivityCustomerLogin extends AppCompatActivity {
     EditText edtEmail;
     EditText edtPassword;
     Button btnLogin;
@@ -37,19 +30,15 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_login);
 
-
-
-
         // TODO: Add logic for button click event
 
         // initialize views
-        edtEmail = findViewById(R.id.email);
-        edtPassword = findViewById(R.id.password);
+        edtEmail = findViewById(R.id.editTextEmail);
+        edtPassword = findViewById(R.id.editTextPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        tvRegister = findViewById(R.id.tvRegister);
+        tvRegister = findViewById(R.id.textViewRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
-
 
 
         // listen for btnRegister click
@@ -59,12 +48,12 @@ public class ActivityLogin extends AppCompatActivity {
             password = edtPassword.getText().toString();
 
             // check for empty fields
-            if (email.isEmpty()){
+            if (email.isEmpty()) {
                 edtEmail.setError("Email is required");
                 edtEmail.requestFocus();
                 return;
             }
-            if (password.isEmpty()){
+            if (password.isEmpty()) {
                 edtPassword.setError("Password is required");
                 edtPassword.requestFocus();
                 return;
@@ -76,28 +65,28 @@ public class ActivityLogin extends AppCompatActivity {
             loader.setCanceledOnTouchOutside(false);
             loader.show();
 
-            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 // hide loader if is showing
                 if (loader.isShowing()) loader.dismiss();
                 // check if login is successful
-                if (!task.isSuccessful()){
-                    Toast.makeText(this, "Unable to Login "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                if (!task.isSuccessful()) {
+                    Toast.makeText(this, "Unable to Login " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 // Login was successful. Move to main activity
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             });
         });
 
         // move to Register activity if user has no account
-        tvRegister.setOnClickListener(view->{
-            Intent intent = new Intent(ActivityLogin.this, ActivityRegister.class);
+        tvRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(ActivityCustomerLogin.this, ActivityRegister.class);
             startActivity(intent);
         });
 
+    }
 
     }
-}
