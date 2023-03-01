@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class ActivityLogin extends AppCompatActivity {
+public class ActivityCustomerLogin extends AppCompatActivity {
 
 
 import android.app.ProgressDialog;
@@ -35,7 +35,7 @@ public class ActivityLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_customer_login);
 
 
 

@@ -5,7 +5,7 @@
     android:id="@+id/Username"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityRegistration">
+    tools:context=".ActivityCustomerRegistration">
 
     <ImageView
         android:id="@+id/imageView"
@@ -84,13 +84,12 @@
         android:id="@+id/textViewPhoneNo"
         android:layout_width="117dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="4dp"
         android:text="Phone Number"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPhoneNo"
         app:layout_constraintEnd_toEndOf="@+id/editTextPhoneNo"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="@+id/editTextPhoneNo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextPhoneNo" />
 
     <EditText
         android:id="@+id/editTextPhoneNo"
@@ -101,36 +100,40 @@
         android:inputType="textPhonetic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.584" />
 
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="74dp"
         android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="452dp"
         android:text="Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="292dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="39dp"
         android:background="@drawable/edt_bg"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/textViewRepeatPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewPassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNo"
+        app:layout_constraintVertical_bias="0.814" />
 
     <TextView
         android:id="@+id/textViewRepeatPassword"

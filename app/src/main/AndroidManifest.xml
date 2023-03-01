@@ -28,7 +28,7 @@
             android:value="YOUR_API_KEY" />
 
         <activity
-            android:name=".ActivityLogin"
+            android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
             android:name=".ActivityRegister"
@@ -69,10 +69,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ActivityRegistration"
+            android:name=".ActivityCustomerRegistration"
             android:exported="false" />
         <activity
-            android:name=".ActivityLogin"
+            android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
