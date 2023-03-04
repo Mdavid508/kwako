@@ -30,7 +30,7 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_houseowner_register);
+        setContentView(R.layout.activity_house_owner_register);
 
         // initialize views
         edtUsername = findViewById(R.id.username);

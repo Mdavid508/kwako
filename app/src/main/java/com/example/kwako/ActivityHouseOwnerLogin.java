@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
+
 // declare views
 public class ActivityHouseOwnerLogin extends AppCompatActivity {
     EditText edtEmail;
@@ -26,7 +26,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_houseowner_login);
+        setContentView(R.layout.activity_house_owner_login);
         // TODO: Add logic for button click event
 
         // initialize views
