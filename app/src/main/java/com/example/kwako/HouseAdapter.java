@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.helper.widget.Layer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflate the layout file for this item
-        View v = LayoutInflater.from(context).inflate(R.layout.house_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.house_item_landlord, parent, false);
         return new MyHolder(v);
     }
 
