@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_house_booking">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="53.33dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintEnd_toStartOf="@+id/textViewBooking"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewBooking"
+        android:layout_width="108dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="32dp"
+        android:text="Booking Units"
+        android:textAppearance="@style/heading_2"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839" />
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="LOCATION"
+        android:textStyle="bold"
+        android:textAppearance="@style/heading_2"
+        app:layout_constraintBottom_toTopOf="@+id/textViewKahawaRidge"
+        app:layout_constraintEnd_toEndOf="@+id/textViewKahawaRidge"
+        app:layout_constraintStart_toStartOf="@+id/textViewKahawaRidge" />
+
+    <TextView
+        android:id="@+id/textViewKahawaRidge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Kahawa Ridge Estate"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDeposit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="PRICE"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewKshs3500"
+        app:layout_constraintEnd_toEndOf="@+id/textViewKshs3500"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewKshs3500" />
+
+    <TextView
+        android:id="@+id/textViewKshs3500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="40dp"
+        android:text="Kshs 3500/-"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUnitsNumber"
+        app:layout_constraintEnd_toStartOf="@+id/textViewKShs"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDeposit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:text="DEPOSIT"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textViewKShs"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewKShs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewKShs"
+        android:layout_width="82dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Kshs 3500/-"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDeposit" />
+
+    <TextView
+        android:id="@+id/textViewUnitsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Units Number"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUnitsNumber"
+        app:layout_constraintEnd_toEndOf="@+id/editTextUnitsNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextUnitsNumber" />
+
+    <EditText
+        android:id="@+id/editTextUnitsNumber"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKahawaRidge" />
+
+    <TextView
+        android:id="@+id/textViewTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Total Amount"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTotalAmount"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTotalAmount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTotalAmount" />
+
+    <EditText
+        android:id="@+id/editTextTotalAmount"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUnitsNumber" />
+
+    <TextView
+        android:id="@+id/textViewMpesaNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Mpesa Number"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMpesaNo"
+        app:layout_constraintEnd_toEndOf="@+id/editTextMpesaNo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextMpesaNo" />
+
+    <EditText
+        android:id="@+id/editTextMpesaNo"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/edt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTotalAmount" />
+
+    <TextView
+        android:id="@+id/textViewWarning"
+        android:layout_width="344dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="24dp"
+        android:text="This is the number that will be used to make payment"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/btnMakePayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnMakePayment"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
+        android:background="@drawable/edt_bgbutton"
+        android:text="Make Payment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
