@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="REGISTER AS"
+        android:text="LOGIN AS"
         android:textAppearance="@style/heading_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,56 +43,114 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Do you Have An Account?Login"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegisterHouse"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/btnRegisterHouse"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegisterHouse" />
-
-    <Button
-        android:id="@+id/btnRegisterCustomer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/edt_bg"
-        android:text="Customer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHouseRegister" />
+        android:text="Don`t Have an Account?Register"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonHouseOwner"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonHouseOwner"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonHouseOwner" />
 
     <TextView
         android:id="@+id/tvCustomerRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Do you Have An Account?Login"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegisterCustomer"
-        app:layout_constraintStart_toStartOf="@+id/btnRegisterCustomer"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegisterCustomer" />
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="97dp"
+        android:text="Don`t Have An Account?Register"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonTenant"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonTenant"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonTenant" />
 
-    <Button
-        android:id="@+id/btnLoginAdmin"
+    <TextView
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/edt_bg"
-        android:text="Admin login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegisterCustomer" />
-
-    <Button
-        android:id="@+id/btnRegisterHouse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/edt_bg"
+        android:layout_marginTop="14.5dp"
+        android:layout_marginBottom="14.5dp"
+        android:elevation="10dp"
         android:text="House Owner"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="94dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonHouseOwner"
+        app:layout_constraintHorizontal_bias="0.624"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonHouseOwner"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonHouseOwner" />
+
+    <ImageButton
+        android:id="@+id/imageButtonTenant"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edt_bg"
+        android:paddingStart="100dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHouseRegister"
+        app:srcCompat="@drawable/susers" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14.5dp"
+        android:layout_marginBottom="14.5dp"
+        android:text="Tenant"
+        android:layout_marginLeft="151dp"
+        android:layout_marginRight="117dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonTenant"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonTenant"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonTenant" />
+
+    <ImageButton
+        android:id="@+id/imageButtonHouseOwner"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edt_bg"
+        android:paddingStart="94dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:srcCompat="@drawable/shouse" />
+
+    <ImageButton
+        android:id="@+id/imageButtonAdmin"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edt_bg"
+        android:paddingStart="97.5dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCustomerRegister"
+        app:srcCompat="@drawable/sadmin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14.5dp"
+        android:layout_marginBottom="14.5dp"
+        android:elevation="10dp"
+        android:text="Admin Login"
+        android:layout_marginLeft="131.5dp"
+        android:layout_marginRight="97.5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonAdmin"
+        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonAdmin"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonAdmin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

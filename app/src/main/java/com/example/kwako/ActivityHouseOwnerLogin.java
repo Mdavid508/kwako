@@ -33,7 +33,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
         edtEmail = findViewById(R.id.email);
         edtPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
-        tvRegister = findViewById(R.id.btnLogin);
+        tvRegister = findViewById(R.id.tvRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
 
@@ -72,7 +72,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
 
                 // Login was successful. Move to main activity
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ActivityHouseOwnerLogin.this, MainActivity.class);
+                Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
                 startActivity(intent);
             });
         });

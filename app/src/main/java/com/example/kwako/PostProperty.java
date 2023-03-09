@@ -25,7 +25,7 @@ public class PostProperty extends AppCompatActivity {
         });
         //the previous button that will take the house owner to the previous page.
         previousImageView.setOnClickListener(view -> {
-            Intent intent = new Intent(this, HouseOwnerDashboard.class);
+            finish();
         });
     }
 }

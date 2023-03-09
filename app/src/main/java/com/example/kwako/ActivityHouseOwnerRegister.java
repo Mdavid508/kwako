@@ -50,26 +50,35 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
             // get user inputs
             name = edtUsername.getText().toString();
             email = edtEmail.getText().toString();
+            phoneno=edtPhone.getText().toString();
             password = edtPassword.getText().toString();
             cPassword = edtCPassword.getText().toString();
 
 
+
             // check for empty fields
-            if (name.isEmpty()) {
-                edtUsername.setError("Username is required");
-                edtUsername.requestFocus();
-                return;
-            }
             if (email.isEmpty()) {
                 edtEmail.setError("Email is required");
                 edtEmail.requestFocus();
                 return;
             }
+            if (name.isEmpty()) {
+                edtUsername.setError("Username is required");
+                edtUsername.requestFocus();
+                return;
+            }
+            if (phoneno.isEmpty()) {
+                edtPhone.setError("Phone No is required");
+                edtPhone.requestFocus();
+                return;
+            }
+
             if (password.isEmpty()) {
                 edtPassword.setError("Password is required");
                 edtPassword.requestFocus();
                 return;
             }
+
             if (cPassword.isEmpty()) {
                 edtCPassword.setError("Confirm Password is required");
                 edtCPassword.requestFocus();
@@ -113,7 +122,7 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
 
                     // save successful, move to mainActivity
                     Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ActivityHouseOwnerRegister.this, MainActivity.class);
+                    Intent intent = new Intent(ActivityHouseOwnerRegister.this, HouseOwnerDashboard.class);
                     startActivity(intent);
                 });
             });
