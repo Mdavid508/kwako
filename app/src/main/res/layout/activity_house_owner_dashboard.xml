@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".HouseOwnerDashboard">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:src="@drawable/house"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/addProperty"
         android:layout_width="292dp"
@@ -13,10 +22,9 @@
         android:layout_marginTop="340dp"
         android:background="@drawable/frame_14"
         android:text="Add Property"
-        android:textColor="#ffffff"
         android:textAllCaps="false"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +39,6 @@
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addProperty"
         app:layout_constraintVertical_bias="0.051" />
