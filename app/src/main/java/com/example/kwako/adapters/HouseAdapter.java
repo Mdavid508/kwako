@@ -1,4 +1,4 @@
-package com.example.kwako;
+package com.example.kwako.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.kwako.R;
+import com.example.kwako.models.House;
 
 import java.util.ArrayList;
 

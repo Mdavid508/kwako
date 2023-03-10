@@ -1,4 +1,4 @@
-package com.example.kwako;
+package com.example.kwako.models;
 
 import java.util.HashMap;
 import java.util.Map;
