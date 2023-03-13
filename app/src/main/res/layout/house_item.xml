@@ -67,6 +67,7 @@
         android:layout_marginEnd="284dp"
         android:text="0769798443"
         app:layout_constraintBottom_toBottomOf="@+id/ivPhone"
+        app:layout_constraintStart_toEndOf="@id/ivPhone"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
@@ -109,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
 
     <ImageView
-        android:id="@+id/ivLocaton"
+        android:id="@+id/ivLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -125,20 +126,20 @@
         android:layout_marginEnd="24dp"
         android:text="Location Pin"
         app:flow_verticalAlign="baseline"
-        app:layout_constraintBottom_toBottomOf="@+id/ivLocaton"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLocation"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="316dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_bg"
         android:text="Book"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:background="@drawable/btn_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHouseType" />
 </androidx.constraintlayout.widget.ConstraintLayout>
