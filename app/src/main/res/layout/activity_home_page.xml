@@ -45,7 +45,6 @@
         android:layout_marginTop="20dp"
         android:text="Don`t Have an Account?Register"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonHouseOwner"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="@+id/imageButtonHouseOwner"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonHouseOwner" />
 
@@ -54,10 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="97dp"
         android:text="Don`t Have An Account?Register"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonTenant"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageButtonTenant"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonTenant" />
 
