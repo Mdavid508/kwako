@@ -7,8 +7,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class User_Dashboard extends AppCompatActivity {
-    //declare views
+
+
     Button btnViewUnits, btnBookedUnits, btnLogout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,3 +31,4 @@ public class User_Dashboard extends AppCompatActivity {
 
     }
 }
+

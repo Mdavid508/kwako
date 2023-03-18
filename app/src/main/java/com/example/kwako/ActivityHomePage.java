@@ -25,6 +25,8 @@ public class ActivityHomePage extends AppCompatActivity {
         imageButtonAdmin = findViewById(R.id.imageButtonAdmin);
         tvHouseRegister = findViewById(R.id.tvHouseRegister);
         tvCustomerRegister = findViewById(R.id.tvCustomerRegister);
+ 
+        findViewById(R.id.imageView2).setOnClickListener(view -> {startActivity(new Intent(this, MainActivity.class));});
 
         // listen for btnRegister click
         imageButtonTenant.setOnClickListener(v -> {
