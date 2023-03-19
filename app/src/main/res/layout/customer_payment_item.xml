@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/ic_customer_payment"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/container_heading"
+        android:text="Location" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:textAppearance="@style/container_heading"
+        android:layout_toEndOf="@id/textView15"
+        android:text="House Type" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/textView15"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvHouseType"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/textView18"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tvLocation"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/container_heading"
+        android:text="Number of Units" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tvHouseType"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/container_heading"
+        android:text="Unit Price" />
+
+    <TextView
+        android:id="@+id/tvUnitsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView23"
+        android:layout_marginTop="12dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvUnitPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView24"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvUnitPrice"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@style/container_heading"
+        android:text="Total Amount Paid" />
+
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView28"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvShowUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTotalAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/accent_color"
+        android:text="Show Unit" />
+
+
+</RelativeLayout>

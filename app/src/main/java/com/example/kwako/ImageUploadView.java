@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class image_upload_view extends AppCompatActivity {
+public class ImageUploadView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_upload_view);
+        setContentView(R.layout.activity_image_upload_item);
     }
 }

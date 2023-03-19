@@ -24,7 +24,7 @@ public class HouseOwnerDashboard extends AppCompatActivity {
         Button houseOwnerLogout = findViewById(R.id.logout);
 
         houseOwnerLogout.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ActivityCustomerLogin.class);
+            Intent intent = new Intent(HouseOwnerDashboard.this, ActivityHouseOwnerLogin.class);
             startActivity(intent);
         });
 

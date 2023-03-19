@@ -10,7 +10,7 @@
         android:layout_width="93dp"
         android:layout_height="87dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/house"
+        android:src="@drawable/ic_house"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

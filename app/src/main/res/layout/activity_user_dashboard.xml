@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDashboard">
+
+    <Button
+        android:id="@+id/buttonViewUnits"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="246dp"
+        android:background="@drawable/edt_bgbutton"
+        android:text="View Units"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBookedUnits"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/edt_bgbutton"
+        android:text="Booked Units"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewUnits" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="246dp"
+        android:background="@drawable/edt_bgbutton"
+        android:text="Logout"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
