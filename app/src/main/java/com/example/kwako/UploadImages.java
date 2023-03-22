@@ -5,7 +5,6 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -17,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.kwako.adapters.ImageUploadAdapter;
+import com.example.kwako.models.Item;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -38,57 +38,51 @@ public class UploadImages extends AppCompatActivity {
     ImageView galleryUpload;
     ImageView cameraUpload;
     Button submitImages;
-    @SuppressLint("MissingInflatedId")
+    ImageUploadAdapter imagesAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_images);
         //setting the filename from the inflator to the recycler view
-        RecyclerView recyclerView = findViewById(R.id.recylerviewuploadimages);
+        RecyclerView recyclerView = findViewById(R.id.recyclerviewUploadImages);
 
         List<Item> items = new ArrayList<>();
         items.add(new Item("image20203456789.jpg"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ImageUploadAdapter(getApplicationContext(),items));
-
+        imagesAdapter = new ImageUploadAdapter(getApplicationContext(),items);
+        recyclerView.setAdapter(imagesAdapter);
         //implement the camera upload or gallery upload functionality.
-        cameraUpload = findViewById(R.id.uploadcamera);
-        galleryUpload = findViewById(R.id.uploadgallery);
+        cameraUpload = findViewById(R.id.uploadCamera);
+        galleryUpload = findViewById(R.id.uploadGallery);
 
         //upload from gallery functionality
-        galleryUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, PICK_IMAGE_FROM_GALLERY_REQUEST_CODE);
+        galleryUpload.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, PICK_IMAGE_FROM_GALLERY_REQUEST_CODE);
 
-            }
         });
         //Take photo functionality method implementation
-        cameraUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+        cameraUpload.setOnClickListener(v -> {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
 
-                byte[] uri = data.getData();
-                String s = null;
-                try {
-                    s = new String(uri, "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException(e);
-                }
-                Uri uri1 = Uri.parse(s);
-                String[] projection = { MediaStore.Images.Media.DATA };
-                Cursor cursor = getContentResolver().query(uri1, projection, null, null, null);
-                cursor.moveToFirst();
-                int columnIndex = cursor.getColumnIndex(projection[0]);
-                String filePath = cursor.getString(columnIndex);
-                cursor.close();
-//                startActivityForResult(intent, PICK_IMAGE_FROM_CAMERA_REQUEST_CODE);
+            byte[] uri = data.getData();
+            String s;
+            try {
+                s = new String(uri, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
+            Uri uri1 = Uri.parse(s);
+            String[] projection = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContentResolver().query(uri1, projection, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(projection[0]);
+            String filePath = cursor.getString(columnIndex);
+            cursor.close();
+            startActivityForResult(intent, PICK_IMAGE_FROM_CAMERA_REQUEST_CODE);
         });
 
 
