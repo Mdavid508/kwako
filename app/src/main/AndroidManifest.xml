@@ -21,13 +21,6 @@
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
-            android:name=".ImageUploadView"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
 
             android:name=".VerifyPropertyDetails"
             android:exported="false" />
