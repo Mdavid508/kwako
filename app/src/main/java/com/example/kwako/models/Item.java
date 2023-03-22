@@ -1,4 +1,4 @@
-package com.example.kwako;
+package com.example.kwako.models;
 
 public class Item {
     String fileName;
