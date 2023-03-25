@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    android:background="@color/white">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
+        tools:context=".MapsActivity"
+        tools:layout="@layout/maps_layout" />
+
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:id="@+id/search_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="92dp"-->
+<!--        android:background="@drawable/edt_bg"-->
+<!--        map:iconifiedByDefault="false"-->
+<!--        map:layout_constraintStart_toStartOf="parent"-->
+<!--        map:layout_constraintTop_toTopOf="parent"-->
+<!--        map:queryHint="Search" />-->
+
+<!--    <com.google.android.material.bottomsheet.BottomSheetDragHandleView-->
+<!--        android:id="@+id/bottomSheetDragHandle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/white"-->
+<!--        map:layout_constraintBottom_toBottomOf="parent"-->
+<!--        map:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="152dp"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:hint="Set Location"-->
+<!--        map:layout_constraintBottom_toTopOf="@+id/btnSetLocation"-->
+<!--        map:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="44dp"-->
+<!--        android:layout_marginBottom="120dp"-->
+<!--        android:background="@drawable/edt_bg2"-->
+<!--        android:text="Set Location"-->
+<!--        android:textColor="@color/white"-->
+<!--        map:layout_constraintBottom_toBottomOf="parent"-->
+<!--        map:layout_constraintEnd_toEndOf="parent"-->
+<!--        map:layout_constraintHorizontal_bias="0.498"-->
+<!--        map:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
