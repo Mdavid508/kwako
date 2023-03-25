@@ -1,17 +1,15 @@
 package com.example.kwako.models;
 
-public class Item {
-    String fileName;
+public class Image {
+    String imageUrl;
 
-    public Item(String fileName) {
-        this.fileName = fileName;
+    public Image(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
-    public String getFileName() {
-        return fileName;
+    public String getImageUrl() {
+        return imageUrl;
     }
-
-
 }
