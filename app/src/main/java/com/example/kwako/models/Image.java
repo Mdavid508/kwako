@@ -3,6 +3,9 @@ package com.example.kwako.models;
 public class Image {
     String imageUrl, imageName;
 
+    public Image(String imageUrl){
+        this.imageUrl = imageUrl;
+    }
     public Image(String imageUrl, String imageName) {
         this.imageUrl = imageUrl;
         this.imageName = imageName;
