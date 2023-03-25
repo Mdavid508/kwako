@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.kwako.models.Item;
+import com.example.kwako.models.Image;
 import com.example.kwako.R;
 
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
 public class ImageUploadAdapter extends RecyclerView.Adapter<ImageUploadAdapter.ImageUploadViewHolder> {
 
     Context context;
-    List<Item> items;
+    List<Image> images;
 
-    public ImageUploadAdapter(Context context, List<Item> items) {
+    public ImageUploadAdapter(Context context, List<Image> images) {
         this.context = context;
-        this.items = items;
+        this.images = images;
     }
 
     @NonNull
@@ -32,13 +32,13 @@ public class ImageUploadAdapter extends RecyclerView.Adapter<ImageUploadAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ImageUploadViewHolder holder, int position) {
-        holder.uploadNameView.setText(items.get(position).getFileName());
+        holder.uploadNameView.setText(images.get(position).getImageUrl());
 
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return images.size();
     }
 
     /**
