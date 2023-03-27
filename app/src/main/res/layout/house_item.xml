@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvHomeLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -35,13 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Location"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/tvHomeLogin"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/imageSlider"
         app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
 
     <TextView
-        android:id="@+id/tvLocation"
+        android:id="@+id/tvSetLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tvPhone"
         app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSetLocation" />
 
     <TextView
         android:id="@+id/tvPhone"
@@ -95,8 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Ksh. 2,000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/tvHomeLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvHomeLogin" />
 
     <TextView
         android:id="@+id/tvHouseType"

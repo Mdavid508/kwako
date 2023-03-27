@@ -1,19 +1,14 @@
 package com.example.kwako;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Toast;
-
-
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.kwako.adapters.AllHousesAdapter;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<SlideModel> imageList;
     AllHousesAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         // make the layout refresh with new data
         adapter.notifyDataSetChanged();
+
+
+
     }
 }
