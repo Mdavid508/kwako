@@ -21,38 +21,38 @@
 
 
 
-    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/bottomSheetDragHandle"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintStart_toStartOf="parent" />
+<!--    <com.google.android.material.bottomsheet.BottomSheetDragHandleView-->
+<!--        android:id="@+id/bottomSheetDragHandle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        map:layout_constraintBottom_toBottomOf="parent"-->
+<!--        map:layout_constraintStart_toStartOf="parent" />-->
 
-    <TextView
-        android:id="@+id/tvSetLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginBottom="12dp"
-        android:hint="Set Location"
-        android:textStyle="bold"
-        map:layout_constraintBottom_toTopOf="@+id/btnSetLocation"
-        map:layout_constraintStart_toStartOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="152dp"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:hint="Set Location"-->
+<!--        android:textStyle="bold"-->
+<!--        map:layout_constraintBottom_toTopOf="@+id/btnSetLocation"-->
+<!--        map:layout_constraintStart_toStartOf="parent" />-->
 
-    <Button
-        android:id="@+id/btnSetLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="116dp"
-        android:background="@drawable/edt_bg2"
-        android:text="Set Location"
-        android:textColor="@color/white"
-        map:layout_constraintBottom_toBottomOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="1.0"
-        map:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle" />
+<!--    <Button-->
+<!--        android:id="@+id/btnSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="44dp"-->
+<!--        android:layout_marginBottom="116dp"-->
+<!--        android:background="@drawable/edt_bg2"-->
+<!--        android:text="Set Location"-->
+<!--        android:textColor="@color/white"-->
+<!--        map:layout_constraintBottom_toBottomOf="parent"-->
+<!--        map:layout_constraintEnd_toEndOf="parent"-->
+<!--        map:layout_constraintHorizontal_bias="1.0"-->
+<!--        map:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle" />-->
 
 
 
