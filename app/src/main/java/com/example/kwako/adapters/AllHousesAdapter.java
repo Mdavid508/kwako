@@ -1,6 +1,7 @@
 package com.example.kwako.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.kwako.MapsActivity;
 import com.example.kwako.R;
 
 import java.util.List;
@@ -41,6 +43,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
         holder.tvPrice.setText("Ksh. 9,000");
         holder.tvPhone.setText("saf: 07565545454");
         holder.tvHouseType.setText("One BedRoom");
+        holder.tvLocationPin.setOnClickListener(holder.onLocationListener);
         holder.btnBook.setOnClickListener(holder.onBookListener);
     }
 
@@ -52,18 +55,26 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         // declare views
         ImageSlider imageSlider;
-        TextView tvLocation, tvPrice, tvPhone, tvHouseType;
+        TextView tvLocation, tvPrice, tvPhone, tvHouseType,tvLocationPin;
         Button btnBook;
-        View.OnClickListener onBookListener;
+        View.OnClickListener onBookListener, onLocationListener;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             // initialize views
             imageSlider = itemView.findViewById(R.id.imageSlider);
-            tvLocation = itemView.findViewById(R.id.tvLocation);
+            tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             tvPhone = itemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
             btnBook = itemView.findViewById(R.id.btnBook);
+            tvLocationPin = itemView.findViewById(R.id.tvLocationPin);
+
+            //open maps
+            onLocationListener = (view -> {
+                Intent intent = new Intent(itemView.getContext(), MapsActivity.class);
+                itemView.getContext().startActivity(intent);
+            });
             // House Booked Listener
             onBookListener = view -> {
                 Toast.makeText(itemView.getContext(), "Booking coming soon", Toast.LENGTH_SHORT).show();

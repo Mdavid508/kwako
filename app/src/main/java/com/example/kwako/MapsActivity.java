@@ -13,9 +13,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.bottomsheet.BottomSheetDragHandleView;
+
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -31,7 +31,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -39,19 +38,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        //initialize the places api
-        if (!Places.isInitialized()) {
-            Places.initialize(getApplicationContext(), "YOUR_API_KEY");
-        }
-
-
-
-
-        //creates a place api
-        placesClient = Places.createClient(this);
-
-        SearchView searchView = findViewById(R.id.search_view);
-        BottomSheetDragHandleView bottomSheetDragHandleView1=findViewById(R.id.bottomSheetDragHandle);
+//        //initialize the places api
+//        if (!Places.isInitialized()) {
+//            Places.initialize(getApplicationContext(), "YOUR_API_KEY");
+//        }
+//
+//
+//
+//
+//        //creates a place api
+//        placesClient = Places.createClient(this);
+//
+//        SearchView searchView = findViewById(R.id.search_view);
+//        BottomSheetDragHandleView bottomSheetDragHandleView1=findViewById(R.id.bottomSheetDragHandle);
         //   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //            @Override
 //            public boolean onQueryTextSubmit(String query) {
@@ -111,10 +110,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng dkut = new LatLng(-0.3974012, 36.9581068);
         mMap.addMarker(new MarkerOptions().position(dkut).title("Dedan Kimathi University of Technology!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(dkut));
-//        adding another marker
-//        LatLng kahawa = new LatLng(-0.4040506, 36.9534623);
-//        mMap.addMarker(new MarkerOptions().position(dkut).title("Kings & Queen Hostel"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(kahawa));
+      //  adding another marker
+        LatLng kahawa = new LatLng(-0.4040506, 36.9534623);
+        mMap.addMarker(new MarkerOptions().position(kahawa).title("Kings & Queen Hostel"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(kahawa));
+        //achivers marker
+        LatLng achievers = new LatLng(-0.4040506, 36.9534623);
+        mMap.addMarker(new MarkerOptions().position(achievers).title("Achievers Hostel"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(achievers));
+
+
 
         // Define the camera position
         CameraPosition cameraPosition = new CameraPosition.Builder()

@@ -9,50 +9,38 @@
  >
 
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/edt_bg"
-        android:hint="Search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <com.google.android.material.bottomsheet.BottomSheetDragHandleView-->
+<!--        android:id="@+id/bottomSheetDragHandle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="528dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/bottomSheetDragHandle"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="476dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="156dp"-->
+<!--        android:layout_marginTop="72dp"-->
+<!--        android:hint="Set Location"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/bottomSheetDragHandle" />-->
 
-    <TextView
-        android:id="@+id/tvSetLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="72dp"
-        android:hint="Set Location"
-        app:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle"
-        app:layout_constraintTop_toTopOf="@+id/bottomSheetDragHandle" />
-
-    <Button
-        android:id="@+id/btnSetLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edt_bg2"
-        android:text="Set Location"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetLocation" />
+<!--    <Button-->
+<!--        android:id="@+id/btnSetLocation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="60dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:background="@drawable/edt_bg2"-->
+<!--        android:text="Set Location"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/bottomSheetDragHandle"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvSetLocation" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
