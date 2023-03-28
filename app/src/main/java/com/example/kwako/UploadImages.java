@@ -1,10 +1,5 @@
 package com.example.kwako;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +10,11 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kwako.adapters.ImageUploadAdapter;
 
@@ -38,6 +38,7 @@ public class UploadImages extends AppCompatActivity {
     ImageView galleryUpload;
     ImageView cameraUpload;
     Button submitImages;
+    ImageView backbutton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,12 @@ public class UploadImages extends AppCompatActivity {
         //implement the camera upload or gallery upload functionality.
         cameraUpload = findViewById(R.id.uploadcamera);
         galleryUpload = findViewById(R.id.uploadgallery);
+        backbutton = findViewById(R.id.imageView3);
+
+        // go back
+        backbutton.setOnClickListener(v ->{
+            finish();
+        });
 
         //upload from gallery functionality
         galleryUpload.setOnClickListener(new View.OnClickListener() {
