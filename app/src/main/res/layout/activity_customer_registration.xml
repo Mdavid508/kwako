@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ActivityCustomerRegistration"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/Username"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ActivityCustomerRegistration">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,20 +33,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="42dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="12dp"
-        android:text="Email"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
-        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterCustomer"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="42dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="12dp"
+            android:text="Email"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+            app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRegisterCustomer"
+            app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -56,17 +61,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegisterCustomer" />
 
-    <TextView
-        android:id="@+id/textViewUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Username"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
-        app:layout_constraintEnd_toEndOf="@+id/editTextUsername"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextUsername" />
+        <TextView
+            android:id="@+id/textViewUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Username"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
+            app:layout_constraintEnd_toEndOf="@+id/editTextUsername"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextUsername" />
 
     <EditText
         android:id="@+id/editTextUsername"
@@ -106,18 +111,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
-    <TextView
-        android:id="@+id/textViewPassword"
-        android:layout_width="74dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Password"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="74dp"
+            android:layout_height="22dp"
+            android:layout_marginBottom="12dp"
+            android:text="Password"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextPassword" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -131,17 +135,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNo" />
 
-    <TextView
-        android:id="@+id/textViewRepeatPassword"
-        android:layout_width="132dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
-        android:text="Repeat Password"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextRepeatPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextRepeatPassword"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextRepeatPassword" />
+        <TextView
+            android:id="@+id/textViewRepeatPassword"
+            android:layout_width="132dp"
+            android:layout_height="22dp"
+            android:layout_marginBottom="12dp"
+            android:text="Repeat Password"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editTextRepeatPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editTextRepeatPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextRepeatPassword" />
 
     <EditText
         android:id="@+id/editTextRepeatPassword"
@@ -169,16 +173,19 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextRepeatPassword"
         app:layout_constraintVertical_bias="0.203" />
 
-    <TextView
-        android:id="@+id/textViewRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Do You Have An Account? Login"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            android:text="Do You Have An Account? Login"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
