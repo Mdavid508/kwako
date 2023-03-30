@@ -17,6 +17,10 @@
         android:theme="@style/Theme.Kwako"
         tools:targetApi="31">
         <activity
+
+            android:name=".ActivityHouseBooking"
+            android:exported = "false"/>
+        <activity
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
