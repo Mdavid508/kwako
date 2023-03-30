@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".activity_house_booking"
     android:layout_height="match_parent"
-    tools:context=".activity_house_booking">
+    android:layout_width="match_parent">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="53.33dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icon_back"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
         app:layout_constraintEnd_toStartOf="@+id/textViewBooking"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +44,7 @@
         android:layout_marginBottom="12dp"
         android:text="LOCATION"
         android:textStyle="bold"
+        android:textColor="#121E61"
         android:textAppearance="@style/heading_2"
         app:layout_constraintBottom_toTopOf="@+id/textViewKahawaRidge"
         app:layout_constraintEnd_toEndOf="@+id/textViewKahawaRidge"
@@ -52,6 +57,7 @@
         android:layout_marginBottom="24dp"
         android:text="Kahawa Ridge Estate"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/textViewDeposit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
@@ -64,6 +70,8 @@
         android:layout_marginBottom="4dp"
         android:text="PRICE"
         android:textStyle="bold"
+        android:textColor="#121E61"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/textViewKshs3500"
         app:layout_constraintEnd_toEndOf="@+id/textViewKshs3500"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,6 +85,7 @@
         android:layout_marginBottom="40dp"
         android:text="Kshs 3500/-"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/textViewUnitsNumber"
         app:layout_constraintEnd_toStartOf="@+id/textViewKShs"
         app:layout_constraintHorizontal_bias="0.018"
@@ -89,6 +98,8 @@
         android:layout_marginTop="192dp"
         android:text="DEPOSIT"
         android:textStyle="bold"
+        android:textColor="#121E61"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="@+id/textViewKShs"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textViewKShs"
@@ -101,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:text="Kshs 3500/-"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.984"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,6 +125,7 @@
         android:layout_marginBottom="8dp"
         android:text="Units Number"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextUnitsNumber"
         app:layout_constraintEnd_toEndOf="@+id/editTextUnitsNumber"
         app:layout_constraintHorizontal_bias="0.0"
@@ -138,6 +151,7 @@
         android:layout_marginBottom="8dp"
         android:text="Total Amount"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextTotalAmount"
         app:layout_constraintEnd_toEndOf="@+id/editTextTotalAmount"
         app:layout_constraintHorizontal_bias="0.0"
@@ -163,6 +177,7 @@
         android:layout_marginBottom="12dp"
         android:text="Mpesa Number"
         android:textStyle="bold"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextMpesaNo"
         app:layout_constraintEnd_toEndOf="@+id/editTextMpesaNo"
         app:layout_constraintHorizontal_bias="0.0"
@@ -188,6 +203,8 @@
         android:layout_marginBottom="24dp"
         android:text="This is the number that will be used to make payment"
         android:textColor="#FF0000"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMpesaNo"
         app:layout_constraintBottom_toTopOf="@+id/btnMakePayment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -208,3 +225,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
