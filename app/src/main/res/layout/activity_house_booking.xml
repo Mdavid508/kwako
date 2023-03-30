@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_house_booking">
+    tools:context=".HouseBooking">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="53.33dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:src="@drawable/icon_back"
         app:layout_constraintEnd_toStartOf="@+id/textViewBooking"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,26 +135,10 @@
         android:id="@+id/textViewTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="Total Amount"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTotalAmount"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTotalAmount"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTotalAmount" />
-
-    <EditText
-        android:id="@+id/editTextTotalAmount"
-        android:layout_width="292dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/edt_bg"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUnitsNumber" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="389dp" />
 
     <TextView
         android:id="@+id/textViewMpesaNo"
@@ -172,14 +156,13 @@
         android:id="@+id/editTextMpesaNo"
         android:layout_width="292dp"
         android:layout_height="48dp"
-        android:layout_marginTop="60dp"
         android:background="@drawable/edt_bg"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTotalAmount" />
+        tools:layout_editor_absoluteY="525dp" />
 
     <TextView
         android:id="@+id/textViewWarning"
@@ -188,13 +171,13 @@
         android:layout_marginBottom="24dp"
         android:text="This is the number that will be used to make payment"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/btnMakePayment"
+        app:layout_constraintBottom_toTopOf="@+id/btnmakepayment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnMakePayment"
+        android:id="@+id/btnmakepayment"
         android:layout_width="292dp"
         android:layout_height="48dp"
         android:layout_marginBottom="32dp"
@@ -205,6 +188,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvtotalamount"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edt_bg"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMpesaNo"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTotalAmount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewTotalAmount"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTotalAmount"
+        app:layout_constraintVertical_bias="0.172" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

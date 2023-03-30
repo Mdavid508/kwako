@@ -1,6 +1,7 @@
 package com.example.kwako.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.kwako.HouseBooking;
+import com.example.kwako.MainActivity;
 import com.example.kwako.R;
 
 import java.util.List;
 
 public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyViewHolder> {
-    private Context context;
+    private static Context context;
     private List<SlideModel> imageList;
 
     public AllHousesAdapter(Context context, List<SlideModel> imageList) {
@@ -67,7 +70,10 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             // House Booked Listener
             onBookListener = view -> {
                 Toast.makeText(itemView.getContext(), "Booking coming soon", Toast.LENGTH_SHORT).show();
-            };
+                Intent intent = new Intent(context,HouseBooking.class);
+                context.startActivity(intent);
+           };
+
         }
     }
 }
