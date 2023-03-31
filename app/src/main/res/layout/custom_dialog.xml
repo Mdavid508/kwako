@@ -9,7 +9,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="201dp"
         android:layout_marginEnd="16dp"
@@ -52,8 +52,8 @@
         android:id="@+id/tvcancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="64dp"
         android:text="Cancel"
         android:textAppearance="@style/normal_text"
         android:textColor="@color/errors_color"
@@ -69,12 +69,15 @@
         android:id="@+id/tvconfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:text="Confirm"
-        android:textColor="@color/accent_color"
         android:textAppearance="@style/normal_text"
+        android:textColor="@color/accent_color"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
         app:layout_constraintTop_toBottomOf="@+id/textView25"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

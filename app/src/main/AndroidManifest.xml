@@ -30,13 +30,6 @@
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
-            android:name=".ImageUploadView"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".VerifyPropertyDetails"
             android:exported="false" />
         <!--
@@ -116,6 +109,9 @@
             android:exported="false" />
         <activity
             android:name=".ActivityHouseOwnerLogin"
+            android:exported="false" />
+        <activity
+            android:name=".HouseBooking"
             android:exported="false" />
         <activity
             android:name=".ActivityCustomerLogin"
