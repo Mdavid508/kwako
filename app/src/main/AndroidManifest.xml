@@ -48,6 +48,9 @@
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
+            android:name=".activity_house_booking"
+            android:exported="false" />
+        <activity
             android:name=".ActivityHomePage"
             android:exported="true">
             <intent-filter>
@@ -114,6 +117,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.kwako.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
     </application>
 
 </manifest>
