@@ -11,23 +11,35 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.House;
+
 public class HouseBooking extends AppCompatActivity {
     Button makePayment;
     TextView confirm;
     TextView cancel;
     Dialog dialog;
+    House house;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_booking);
 
+        // get house data passed via intent
+        house = getIntent().getParcelableExtra("house");
+
+
 //        button to trigger the dialog
         makePayment = findViewById(R.id.btnmakepayment);
         makePayment.setOnClickListener(v -> {
-          dialog.show();
-        });
+            if (house == null) {
+                Toast.makeText(this, "House data is null", Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(this, "House data passed successfully", Toast.LENGTH_SHORT).show();
+            }
 
+            dialog.show();
+        });
 
 
 //        initialization of dialog
@@ -52,7 +64,6 @@ public class HouseBooking extends AppCompatActivity {
             Toast.makeText(this, "yes make sure you have paid for the amount said", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
         });
-
 
 
     }
