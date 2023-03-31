@@ -1,9 +1,10 @@
 package com.example.kwako;
 
+import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
-import android.os.Bundle;
 
 import com.example.kwako.adapters.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -13,6 +14,8 @@ public class VerifyPropertyDetails extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     ViewPagerAdapter viewPagerAdapter;
+    ImageView backbutton;
+
     public static final int TOTAL_TABS  = 2;
 
     @Override
@@ -21,6 +24,7 @@ public class VerifyPropertyDetails extends AppCompatActivity {
         setContentView(R.layout.activity_verify_property_details);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager);
+
 
         viewPagerAdapter  = new ViewPagerAdapter(this, TOTAL_TABS, getSupportFragmentManager(), getLifecycle());
         viewPager2.setAdapter(viewPagerAdapter);
@@ -52,6 +56,11 @@ public class VerifyPropertyDetails extends AppCompatActivity {
                 // select the tab at this scroll position
                 tabLayout.getTabAt(position).select();
             }
+        });
+//previous button
+        backbutton = findViewById(R.id.btnBack);
+        backbutton.setOnClickListener(view -> {
+            finish();
         });
 
     }

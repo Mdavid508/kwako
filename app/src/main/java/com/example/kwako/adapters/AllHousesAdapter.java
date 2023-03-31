@@ -41,7 +41,6 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
         holder.imageSlider.setImageList(imageList);
         holder.tvLocation.setText("L: Nyeri");
         holder.tvPrice.setText("Ksh. 9,000");
-        holder.tvPhone.setText("saf: 07565545454");
         holder.tvHouseType.setText("One BedRoom");
         holder.tvLocationPin.setOnClickListener(holder.onLocationListener);
         holder.btnBook.setOnClickListener(holder.onBookListener);
@@ -65,7 +64,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             imageSlider = itemView.findViewById(R.id.imageSlider);
             tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvPhone = itemView.findViewById(R.id.tvPhone);
+//            tvPhone = itemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
             btnBook = itemView.findViewById(R.id.btnBook);
             tvLocationPin = itemView.findViewById(R.id.tvLocationPin);

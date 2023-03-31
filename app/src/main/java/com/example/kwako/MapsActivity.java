@@ -1,6 +1,7 @@
 package com.example.kwako;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentActivity;
@@ -14,6 +15,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDragHandleView;
 
 
@@ -25,6 +27,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private PlacesClient placesClient;
     private SearchView searchView;
     private BottomSheetDragHandleView bottomSheetDragHandleView;
+    private BottomSheetBehavior bottomSheetBehavior;
+    private TextView textView;
 
 
 
@@ -38,6 +42,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+//        //bottom sheet
+//        bottomSheetDragHandleView = findViewById(R.id.bottomSheetDragHandle);
+//        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetDragHandleView);
+//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+//        textView= findViewById(R.id.text_view);
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            }
+//        });
+
+
+
+
 //        //initialize the places api
 //        if (!Places.isInitialized()) {
 //            Places.initialize(getApplicationContext(), "YOUR_API_KEY");

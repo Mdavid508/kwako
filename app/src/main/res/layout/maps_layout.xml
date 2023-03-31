@@ -6,8 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
- >
+    >
 
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="s_wear_update_text"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 <!--    <com.google.android.material.bottomsheet.BottomSheetDragHandleView-->
 <!--        android:id="@+id/bottomSheetDragHandle"-->
@@ -17,6 +25,7 @@
 <!--        android:layout_marginStart="4dp"-->
 <!--        android:layout_marginTop="528dp"-->
 <!--        android:background="@color/white"-->
+<!--        android:transitionName="@string/bottom_sheet_behavior"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 

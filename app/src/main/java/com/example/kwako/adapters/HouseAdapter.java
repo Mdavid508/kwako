@@ -40,6 +40,14 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
         House house =  houses.get(position);
         holder.tvPrice.setText(house.getPrice());
         holder.tvLocation.setText(house.getLocation());
+        if (house.isAvailable()){
+            // house available
+            holder.ivSwitchOff.setImageResource(R.drawable.ic_switch_on);
+        }else {
+            // house not available
+            holder.ivSwitchOff.setImageResource(R.drawable.ic_switch_off);
+        }
+
         holder.tvLocation.setOnClickListener(holder.onLocationListener);
     }
 
@@ -61,6 +69,8 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
             tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             tvLocation = itemView.findViewById(R.id.tvLocationPin);
+            ivSwitchOn = itemView.findViewById(R.id.ivAvailable);
+            ivSwitchOff = itemView.findViewById(R.id.ivAvailable);
 
 
             //open maps

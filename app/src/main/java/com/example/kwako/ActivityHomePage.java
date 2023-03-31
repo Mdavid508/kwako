@@ -11,7 +11,7 @@ public class ActivityHomePage extends AppCompatActivity {
 
     //declare views
     ImageButton imageButtonHouse, imageButtonTenant, imageButtonAdmin;
-    TextView tvHouseRegister, tvCustomerRegister,tvHomeLogin;
+    TextView tvHouseRegister, tvCustomerRegister,tvHomeLogin, textView9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class ActivityHomePage extends AppCompatActivity {
         tvHouseRegister = findViewById(R.id.tvHouseRegister);
         tvCustomerRegister = findViewById(R.id.tvCustomerRegister);
         tvHomeLogin=findViewById(R.id.tvHomeLogin);
+        textView9=findViewById(R.id.textView9);
  
         findViewById(R.id.imageView2).setOnClickListener(view -> {startActivity(new Intent(this, MainActivity.class));});
 
@@ -65,6 +66,11 @@ public class ActivityHomePage extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //bottom sheet trial
+        textView9.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityHomePage.this, VerifyPropertyDetails.class);
+            startActivity(intent);
+        });
 
     }
 

@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class House {
-    private String name, location, price, available, sellerName;
+    private String name, location, price, sellerName;
+    private boolean available;
     public House(){
         // required empty default constructor
     }
@@ -33,11 +34,11 @@ public class House {
         this.price = price;
     }
 
-    public String getAvailable() {
+    public boolean isAvailable() {
         return available;
     }
 
-    public void setAvailable(String available) {
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 
