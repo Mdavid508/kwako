@@ -6,6 +6,10 @@ public class Image {
     String imageUrl, imageName;
     Uri imageUri;
 
+    public Image(){
+        // required default constructor
+    }
+
     public Image(String imageName){
         this.imageName = imageName;
     }

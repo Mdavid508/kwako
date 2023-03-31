@@ -15,18 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.kwako.HouseBooking;
-import com.example.kwako.MainActivity;
 import com.example.kwako.R;
+import com.example.kwako.models.House;
+import com.example.kwako.models.Image;
+import com.example.kwako.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyViewHolder> {
     private static Context context;
-    private List<SlideModel> imageList;
+    private List<House> houses;
 
-    public AllHousesAdapter(Context context, List<SlideModel> imageList) {
+    public AllHousesAdapter(Context context, List<House> houses) {
         this.context = context;
-        this.imageList = imageList;
+        this.houses = houses;
     }
 
     @NonNull
@@ -38,18 +41,27 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        House house = houses.get(position);
+        User houseOwner = house.getOwner();
         // bind data to view in order to be rendered to the user
-        holder.imageSlider.setImageList(imageList);
-        holder.tvLocation.setText("L: Nyeri");
-        holder.tvPrice.setText("Ksh. 9,000");
-        holder.tvPhone.setText("saf: 07565545454");
-        holder.tvHouseType.setText("One BedRoom");
-        holder.btnBook.setOnClickListener(holder.onBookListener);
+        holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
+        holder.tvLocation.setText(house.getLocation());
+        holder.tvPrice.setText("Ksh. "+house.getPrice());
+        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
+        holder.tvHouseType.setText(house.getHouseType());
+
+        holder.btnBook.setOnClickListener(view -> {
+            Toast.makeText(context, "Booking coming soon", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context,HouseBooking.class);
+            intent.putExtra("house", house);
+            // pass house data along
+            context.startActivity(intent);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return imageList.size();
+        return houses.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -57,7 +69,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
         ImageSlider imageSlider;
         TextView tvLocation, tvPrice, tvPhone, tvHouseType;
         Button btnBook;
-        View.OnClickListener onBookListener;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             // initialize views
@@ -67,13 +79,18 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             tvPhone = itemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
             btnBook = itemView.findViewById(R.id.btnBook);
-            // House Booked Listener
-            onBookListener = view -> {
-                Toast.makeText(itemView.getContext(), "Booking coming soon", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context,HouseBooking.class);
-                context.startActivity(intent);
-           };
-
         }
+    }
+
+
+    /**
+     * Create SlideModels from house images
+     */
+    private List<SlideModel> generateSlideModels(List<Image> houseImages){
+        List<SlideModel> slideModels = new ArrayList<>(houseImages.size());
+        for (Image image: houseImages){
+            slideModels.add(new SlideModel(image.getImageUrl(), "", null));
+        }
+        return slideModels;
     }
 }
