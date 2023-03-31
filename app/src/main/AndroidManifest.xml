@@ -17,11 +17,16 @@
         android:theme="@style/Theme.Kwako"
         tools:targetApi="31">
         <activity
-
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
-
+            android:name=".ImageUploadView"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".VerifyPropertyDetails"
             android:exported="false" />
         <!--
@@ -41,6 +46,9 @@
 
         <activity
             android:name=".ActivityCustomerLogin"
+            android:exported="false" />
+        <activity
+            android:name=".activity_house_booking"
             android:exported="false" />
         <activity
             android:name=".ActivityHomePage"
