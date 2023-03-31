@@ -21,7 +21,7 @@ import com.example.kwako.R;
 import java.util.List;
 
 public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyViewHolder> {
-    private static Context context;
+    private Context context;
     private List<SlideModel> imageList;
 
     public AllHousesAdapter(Context context, List<SlideModel> imageList) {
@@ -69,7 +69,8 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             btnBook = itemView.findViewById(R.id.btnBook);
             // House Booked Listener
             onBookListener = view -> {
-                Toast.makeText(itemView.getContext(), "Booking coming soon", Toast.LENGTH_SHORT).show();
+                Context context = itemView.getContext();
+                Toast.makeText(context, "Booking coming soon", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context,HouseBooking.class);
                 context.startActivity(intent);
            };
