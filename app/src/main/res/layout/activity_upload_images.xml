@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/uploadcamera"
+            android:id="@+id/uploadCamera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="503dp"
@@ -48,21 +48,21 @@
             app:srcCompat="@drawable/ic_camera" />
 
         <ImageView
-            android:id="@+id/uploadgallery"
+            android:id="@+id/uploadGallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="503dp"
             android:layout_marginBottom="12dp"
             app:layout_constraintBottom_toTopOf="@+id/tvGallery"
-            app:layout_constraintEnd_toStartOf="@+id/uploadcamera"
+            app:layout_constraintEnd_toStartOf="@+id/uploadCamera"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_upload" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnSubmit"
             android:layout_width="292dp"
             android:layout_height="48dp"
             android:layout_marginBottom="70dp"
@@ -83,10 +83,10 @@
             android:text="upload from gallery"
             android:textFontWeight="400"
             android:textAppearance="@style/normal_text"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/uploadgallery"
+            app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+            app:layout_constraintEnd_toEndOf="@+id/uploadGallery"
             app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="@+id/uploadgallery" />
+            app:layout_constraintStart_toStartOf="@+id/uploadGallery" />
 
         <TextView
             android:id="@+id/textView16"
@@ -96,10 +96,10 @@
             android:text="take photo"
             android:textAllCaps="false"
             android:textAppearance="@style/normal_text"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/uploadcamera"
+            app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+            app:layout_constraintEnd_toEndOf="@+id/uploadCamera"
             app:layout_constraintHorizontal_bias="0.48"
-            app:layout_constraintStart_toStartOf="@+id/uploadcamera" />
+            app:layout_constraintStart_toStartOf="@+id/uploadCamera" />
 
         <TextView
             android:id="@+id/textView17"
@@ -109,12 +109,12 @@
             android:text="Please upload a minimum of 4 pictures"
             android:textColor="#FF0000"
             android:textAppearance="@style/normal_text"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recylerviewuploadimages"
+            android:id="@+id/recyclerviewUploadImages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
@@ -122,7 +122,7 @@
             android:layout_marginEnd="1dp"
             android:padding="16dp"
             android:layout_marginBottom="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/uploadgallery"
+            app:layout_constraintBottom_toTopOf="@+id/uploadGallery"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
