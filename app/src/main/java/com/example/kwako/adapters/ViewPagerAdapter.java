@@ -29,14 +29,15 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
          */
         switch (position){
             case 0 : {
-                // first tab (Verified Property)
-                VerifiedPropertyDetails verifiedP = new VerifiedPropertyDetails();
-                return verifiedP;
-            }
-            case 1 : {
-                // second tab (Unverified Property Details)
+                // first tab (Unverified Property Details)
                 UnverifiedPropertyDetails unverifiedP =  new UnverifiedPropertyDetails();
                 return  unverifiedP;
+
+            }
+            case 1 : {
+                // second tab (Verified Property)
+                VerifiedPropertyDetails verifiedP = new VerifiedPropertyDetails();
+                return verifiedP;
             }
             default:{
                 // no fragment matched

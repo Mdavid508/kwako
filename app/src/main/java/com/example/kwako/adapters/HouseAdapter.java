@@ -1,6 +1,7 @@
 package com.example.kwako.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kwako.MapsActivity;
 import com.example.kwako.R;
 import com.example.kwako.models.House;
 
@@ -38,6 +40,15 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
         House house =  houses.get(position);
         holder.tvPrice.setText("Ksh. "+house.getPrice());
         holder.tvLocation.setText(house.getLocation());
+        if (house.isAvailable()){
+            // house available
+            holder.ivSwitchOff.setImageResource(R.drawable.ic_switch_on);
+        }else {
+            // house not available
+            holder.ivSwitchOff.setImageResource(R.drawable.ic_switch_off);
+        }
+
+        holder.tvLocation.setOnClickListener(holder.onLocationListener);
     }
 
     @Override
@@ -50,11 +61,27 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
         TextView tvLocation, tvPrice;
         ImageView ivSwitchOn, ivSwitchOff;
 
+        View.OnClickListener  onLocationListener;
+
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             // initialize views
-            tvLocation = itemView.findViewById(R.id.tvLocation);
+            tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
+            tvLocation = itemView.findViewById(R.id.tvLocationPin);
+            ivSwitchOn = itemView.findViewById(R.id.ivAvailable);
+            ivSwitchOff = itemView.findViewById(R.id.ivAvailable);
+
+
+            //open maps
+            onLocationListener = (view -> {
+                Intent intent = new Intent(itemView.getContext(), MapsActivity.class);
+                itemView.getContext().startActivity(intent);
+            });
+
+
+
+
         }
     }
 }

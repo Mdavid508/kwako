@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="10dp">
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/imageSlider"
@@ -17,10 +19,12 @@
         app:iss_placeholder="@drawable/house1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </com.denzcoskun.imageslider.ImageSlider>
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvHomeLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -35,13 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Location"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/tvHomeLogin"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/imageSlider"
         app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
 
     <TextView
-        android:id="@+id/tvLocation"
+        android:id="@+id/tvSetLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -53,22 +57,12 @@
         android:id="@+id/ivPhone"
         android:layout_width="30dp"
         android:layout_height="31dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/ic_phone"
-        app:layout_constraintEnd_toStartOf="@+id/tvPhone"
-        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
-
-    <TextView
-        android:id="@+id/tvPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="284dp"
-        android:text="0769798443"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPhone"
-        app:layout_constraintStart_toEndOf="@id/ivPhone"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSetLocation" />
 
     <ImageView
         android:id="@+id/ivWhatsapp"
@@ -95,8 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Ksh. 2,000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/tvHomeLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvHomeLogin" />
 
     <TextView
         android:id="@+id/tvHouseType"
