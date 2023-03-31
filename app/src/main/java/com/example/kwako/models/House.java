@@ -1,10 +1,12 @@
 package com.example.kwako.models;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class House {
     private String name, location, price, available, sellerName;
+    private List<Image> images;
     public House(){
         // required empty default constructor
     }
@@ -48,6 +50,12 @@ public class House {
     public void setSellerName(String sellerName) {
         this.sellerName = sellerName;
     }
+    public void setImages(List<Image> images){
+        this.images = images;
+    }
+    public List<Image> getImages() {
+        return images;
+    }
 
     public Map<String, Object> toMap(){
         Map<String, Object> houseDetails = new HashMap<>();
@@ -55,6 +63,7 @@ public class House {
         houseDetails.put("location", location);
         houseDetails.put("price", price);
         houseDetails.put("sellerName", sellerName);
+        houseDetails.put("images", images);
 
         return houseDetails;
     }
