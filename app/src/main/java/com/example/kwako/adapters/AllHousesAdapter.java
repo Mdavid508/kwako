@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyViewHolder> {
+
     private static Context context;
     private List<House> houses;
 
@@ -79,6 +80,13 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             tvPhone = itemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
             btnBook = itemView.findViewById(R.id.btnBook);
+            // House Booked Listener
+            onBookListener = view -> {
+                Context context = itemView.getContext();
+                Toast.makeText(context, "Booking coming soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,HouseBooking.class);
+                context.startActivity(intent);
+           };
         }
     }
 
