@@ -36,7 +36,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         // bind data to the viewHolder
         House house =  houses.get(position);
-        holder.tvPrice.setText(house.getPrice());
+        holder.tvPrice.setText("Ksh. "+house.getPrice());
         holder.tvLocation.setText(house.getLocation());
     }
 
