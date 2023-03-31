@@ -103,19 +103,19 @@ public class VerifiedPropertyDetails extends Fragment {
             house1.setName("Kens Hostels");
             house1.setAvailable(true);
             house1.setLocation("Kimathi Way");
-            house1.setPrice("3500");
+            house1.setPrice(3500);
             house1.setSellerName("Mr. Almond");
             House house2 = new House();
             house2.setName("Kens Hostels");
             house2.setAvailable(false);
             house2.setLocation("Kimathi Way");
-            house2.setPrice("3500");
+            house2.setPrice(3500);
             house2.setSellerName("Mr. Almond");
             House house3 = new House();
             house3.setName("Kens Hostels");
             house3.setAvailable(true);
             house3.setLocation("Kimathi Way");
-            house3.setPrice("3500");
+            house3.setPrice(3500);
             house3.setSellerName("Mr. Almond");
 
             // add to arrayList

@@ -27,7 +27,6 @@
         tools:targetApi="31">
 
         <activity
-
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
@@ -38,7 +37,6 @@
                 android:value="" />
         </activity>
         <activity
-
             android:name=".VerifyPropertyDetails"
             android:exported="false" />
         <!--
@@ -62,6 +60,9 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".ActivityCustomerLogin"
+            android:exported="false" />
+        <activity
+            android:name=".HouseBooking"
             android:exported="false" />
         <activity
             android:name=".ActivityHomePage"
@@ -127,6 +128,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.kwako.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
     </application>
 
 </manifest>
