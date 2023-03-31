@@ -32,8 +32,8 @@ public class ImageUploadAdapter extends RecyclerView.Adapter<ImageUploadAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ImageUploadViewHolder holder, int position) {
-        holder.uploadNameView.setText(images.get(position).getImageUrl());
-
+	Image image = images.get(position);
+	holder.uploadNameView.setText(image.getImageName());
     }
 
     @Override
