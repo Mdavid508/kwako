@@ -4,27 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.rpc.RetryInfo;
-
-import java.net.URL;
+import com.example.kwako.models.House;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.UUID;
 
 public class ActivityHouseBooking extends AppCompatActivity{
 
     EditText editTextUnitsNumber;
 
-    EditText editTextTotalAmount;
+    TextView textViewTotalAmount;
 
     EditText editTextMpesaNo;
 
@@ -37,27 +39,39 @@ public class ActivityHouseBooking extends AppCompatActivity{
         setContentView(R.layout.activity_house_booking);
 
         editTextMpesaNo = findViewById(R.id.editTextMpesaNo);
-        editTextTotalAmount = findViewById(R.id.editTextTotalAmount);
+        textViewTotalAmount = null;
         editTextUnitsNumber = findViewById(R.id.editTextUnitsNumber);
 
-        btnMakePayment = findViewById(R.id.btnMakePayment);
+        btnMakePayment = findViewById(R.id.btnmakepayment);
+
+        editTextUnitsNumber.setOnKeyListener( ( new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                // add logic to change the value of the edit text !
+
+                return false;
+            }
+        });
 
         btnMakePayment.setOnClickListener( view -> {
             if(editTextMpesaNo.getText().toString().isEmpty() && editTextUnitsNumber.getText().toString().isEmpty()){
                 Toast.makeText(ActivityHouseBooking.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            House house = (House) getIntent().getSerializableExtra("House");
+
             String MpesaNoValue = editTextMpesaNo.getText().toString();
 
             String UnitsNumberValue = editTextUnitsNumber.getText().toString();
             int UnitsNumber = Integer.parseInt(UnitsNumberValue);
 
-            // recieve data from the other side
-            int RentAmount = 1;
-            int DepositAmount = 1;
+            // receive data from the other side
+            int RentAmount = (int) house.getPrice();
+            int DepositAmount = (int) house.getPrice();
 
             // Generate a UUID
-            String IdentifierID = "Test";
+            String IdentifierID = String.valueOf(UUID.randomUUID());
 
             // Get data from previous screen
             int TotalAmountPayble = (RentAmount + DepositAmount) * UnitsNumber;
@@ -67,7 +81,6 @@ public class ActivityHouseBooking extends AppCompatActivity{
         });
 
     }
-
     private void postData(String phone, int amount, String identifier) {
 
         Retrofit retrofit = new Retrofit.Builder()
