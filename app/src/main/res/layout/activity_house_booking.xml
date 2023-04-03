@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/HouseOwner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
@@ -43,13 +43,14 @@
             android:id="@+id/textViewLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="8dp"
             android:text="LOCATION"
             android:textAppearance="@style/heading_2"
             android:textColor="#121E61"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textViewKahawaRidge"
             app:layout_constraintEnd_toEndOf="@+id/textViewKahawaRidge"
+            app:layout_constraintHorizontal_bias="0.017"
             app:layout_constraintStart_toStartOf="@+id/textViewKahawaRidge" />
 
         <TextView
@@ -143,6 +144,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="140dp"
+            android:paddingStart="16dp"
             android:background="@drawable/edt_bg"
             android:ems="10"
             android:inputType="textPersonName"
@@ -186,6 +188,7 @@
             android:layout_marginTop="48dp"
             android:background="@drawable/edt_bg"
             android:ems="10"
+            android:paddingStart="16dp"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
@@ -224,6 +227,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="68dp"
+            android:paddingStart="16dp"
             android:background="@drawable/edt_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
