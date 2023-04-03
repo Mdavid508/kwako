@@ -45,7 +45,8 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="${MAPS_API_KEY}"
+            />
 
         <activity
             android:name=".MapsActivity"
@@ -109,9 +110,6 @@
             android:exported="false" />
         <activity
             android:name=".ActivityHouseOwnerLogin"
-            android:exported="false" />
-        <activity
-            android:name=".HouseBooking"
             android:exported="false" />
         <activity
             android:name=".ActivityCustomerLogin"
