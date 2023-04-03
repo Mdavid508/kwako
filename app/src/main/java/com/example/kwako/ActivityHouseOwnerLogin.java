@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 // declare views
 public class ActivityHouseOwnerLogin extends AppCompatActivity {
@@ -21,7 +24,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
     ProgressDialog loader;
     TextView tvRegister;
     FirebaseAuth mAuth;
-
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
         tvRegister = findViewById(R.id.tvRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // listen for btnRegister click
         btnLogin.setOnClickListener(v -> {
@@ -70,10 +74,20 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
                     return;
                 }
 
-                // Login was successful. Move to main activity
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
-                startActivity(intent);
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                db.collection("Users").document(firebaseUser.getUid()).get().addOnCompleteListener(task2 -> {
+                    if (!task2.isSuccessful()){
+                        Toast.makeText(this, "Unable to get your saved data: "+task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    // save user session and proceed to HouseOwner dashboard
+                    User user = task2.getResult().toObject(User.class);
+                    Session.currentUser = user;
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
+                    startActivity(intent);
+
+                });
             });
         });
 
