@@ -1,6 +1,7 @@
 package com.example.kwako;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -57,7 +59,6 @@ public class ActivityCustomerLogin extends AppCompatActivity {
                 return;
             }
 
-
             // Login user
             loader.setMessage("Login in progress. Please wait...");
             loader.setCanceledOnTouchOutside(false);
@@ -72,10 +73,12 @@ public class ActivityCustomerLogin extends AppCompatActivity {
                     return;
                 }
 
+                // Get user data from Firebase
+
+
                 // Login was successful. Move to main activity
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
             });
         });
 
@@ -86,4 +89,4 @@ public class ActivityCustomerLogin extends AppCompatActivity {
         });
 
     }
-    }
+}
