@@ -2,9 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -16,6 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kwako"
         tools:targetApi="31">
+
         <activity
 
             android:name=".ActivityHouseBooking"
@@ -23,13 +33,6 @@
         <activity
             android:name=".CustomerPayment"
             android:exported="false" />
-        <activity
-            android:name=".ImageUploadView"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".VerifyPropertyDetails"
             android:exported="false" />
@@ -46,13 +49,17 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="${MAPS_API_KEY}" />
 
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
-            android:name=".activity_house_booking"
+            android:name=".HouseBooking"
             android:exported="false" />
         <activity
             android:name=".ActivityHomePage"
