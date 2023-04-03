@@ -1,18 +1,17 @@
 package com.example.kwako;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityHomePage extends AppCompatActivity {
 
     //declare views
     ImageButton imageButtonHouse, imageButtonTenant, imageButtonAdmin;
-    TextView tvHouseRegister, tvCustomerRegister;
+    TextView tvHouseRegister, tvCustomerRegister,tvHomeLogin, textView9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +24,8 @@ public class ActivityHomePage extends AppCompatActivity {
         imageButtonAdmin = findViewById(R.id.imageButtonAdmin);
         tvHouseRegister = findViewById(R.id.tvHouseRegister);
         tvCustomerRegister = findViewById(R.id.tvCustomerRegister);
+        tvHomeLogin=findViewById(R.id.tvHomeLogin);
+        textView9=findViewById(R.id.textView9);
  
         findViewById(R.id.imageView2).setOnClickListener(view -> {startActivity(new Intent(this, MainActivity.class));});
 
@@ -59,8 +60,17 @@ public class ActivityHomePage extends AppCompatActivity {
             Intent intent = new Intent(ActivityHomePage.this, ActivityCustomerRegistration.class);
             startActivity(intent);
         });
+        //open maps
+        tvHomeLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityHomePage.this, MapsActivity.class);
+            startActivity(intent);
+        });
 
-
+        //bottom sheet trial
+        textView9.setOnClickListener(v -> {
+            Intent intent = new Intent(ActivityHomePage.this, VerifyPropertyDetails.class);
+            startActivity(intent);
+        });
 
     }
 

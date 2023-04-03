@@ -40,12 +40,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verified"
+            android:text="UnVerified"
             />
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UnVerified"
+            android:text="Verified"
             />
     </com.google.android.material.tabs.TabLayout>
 
