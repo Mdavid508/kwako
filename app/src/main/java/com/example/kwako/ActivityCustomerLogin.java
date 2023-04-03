@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class ActivityCustomerLogin extends AppCompatActivity {
@@ -23,8 +25,7 @@ public class ActivityCustomerLogin extends AppCompatActivity {
     ProgressDialog loader;
     TextView tvRegister;
     FirebaseAuth mAuth;
-
-
+    FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class ActivityCustomerLogin extends AppCompatActivity {
         tvRegister = findViewById(R.id.textViewRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         // listen for btnRegister click
@@ -74,11 +76,20 @@ public class ActivityCustomerLogin extends AppCompatActivity {
                 }
 
                 // Get user data from Firebase
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                db.collection("Users").document(firebaseUser.getUid()).get().addOnCompleteListener(task2 -> {
+                    if (!task2.isSuccessful()){
+                        Toast.makeText(this, "Unable to get your data: "+task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    // save user session and proceed to MainActivity
+                    User user = task2.getResult().toObject(User.class);
+                    Session.currentUser = user;
 
-
-                // Login was successful. Move to main activity
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                });
             });
         });
 
