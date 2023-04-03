@@ -112,7 +112,7 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
 
                 // to save additional details of a user, you need to save this data to a FireStore database
 
-                db.collection("Users").add(user).addOnCompleteListener(task2 -> {
+                db.collection("Users").add(user.toMap()).addOnCompleteListener(task2 -> {
                     // hide loader if showing
                     if (loader.isShowing()) loader.dismiss();
                     if (!task2.isSuccessful()) {
