@@ -7,7 +7,7 @@
     tools:context=".AdminDashboard">
 
     <Button
-        android:id="@+id/verifyProperty"
+        android:id="@+id/btnverifyproperty"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginTop="340dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/adminLogout"
+        android:id="@+id/btnAdminLogout"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:background="@drawable/frame_14"
@@ -32,6 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyProperty"
+        app:layout_constraintTop_toBottomOf="@+id/btnverifyproperty"
         app:layout_constraintVertical_bias="0.244" />
 </androidx.constraintlayout.widget.ConstraintLayout>

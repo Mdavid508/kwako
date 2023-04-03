@@ -13,6 +13,8 @@ public class AdminDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
+        btnLogout = findViewById(R.id.btnAdminLogout);
+        btnVerifyProperty = findViewById(R.id.btnverifyproperty);
         //
         //logout button
         btnLogout.setOnClickListener(v -> {
@@ -22,7 +24,8 @@ public class AdminDashboard extends AppCompatActivity {
 
         //btnVerifyProperty takes the admin to the verify property page.
         btnVerifyProperty.setOnClickListener(v -> {
-
+        Intent intent = new Intent(this, VerifyPropertyDetails.class);
+        startActivity(intent);
         });
     }
 }
