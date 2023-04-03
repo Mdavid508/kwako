@@ -82,6 +82,12 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
                     }
                     // save user session and proceed to HouseOwner dashboard
                     User user = task2.getResult().toObject(User.class);
+                    // verify if a house owner
+                    if (!user.getUserType().equals(Constants.USER_TYPE_LANDLORD)){
+                        Toast.makeText(this, "Only house owners can access this page. ", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
                     Session.currentUser = user;
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
