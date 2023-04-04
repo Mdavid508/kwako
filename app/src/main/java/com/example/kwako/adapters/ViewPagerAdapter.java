@@ -1,6 +1,7 @@
 package com.example.kwako.adapters;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,14 +31,14 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         switch (position){
             case 0 : {
                 // first tab (Unverified Property Details)
-                UnverifiedPropertyDetails unverifiedP =  new UnverifiedPropertyDetails();
-                return  unverifiedP;
+                UnverifiedPropertyDetails unVerifiedP =  new UnverifiedPropertyDetails();
+                return  unVerifiedP;
 
             }
             case 1 : {
                 // second tab (Verified Property)
-                VerifiedPropertyDetails verifiedP = new VerifiedPropertyDetails();
-                return verifiedP;
+                VerifiedPropertyDetails verified = new VerifiedPropertyDetails();
+                return verified;
             }
             default:{
                 // no fragment matched

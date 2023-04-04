@@ -26,9 +26,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kwako.adapters.ImageUploadAdapter;
 import com.example.kwako.models.Image;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -103,12 +106,15 @@ public class UploadImages extends AppCompatActivity {
         String imageName = UUID.randomUUID() + "." + getFileExtension(image.getImageUri());
         final StorageReference ref = imagesRef.child("images/" + imageName);
         Toast.makeText(this, "Uploading image " + image.getImageName(), Toast.LENGTH_SHORT).show();
-        ref.putFile(image.getImageUri()).addOnSuccessListener(taskSnapshot -> {
+        UploadTask uploadTask = ref.putFile(image.getImageUri());
+
+        uploadTask.addOnSuccessListener(taskSnapshot -> {
             // get image download URI
-            ref.getDownloadUrl().addOnCompleteListener(uri -> {
+            Task<Uri> downloadUrlTask = taskSnapshot.getStorage().getDownloadUrl();
+            downloadUrlTask.addOnSuccessListener(uri -> {
                 // save information to firebase here
                 String imageURL = uri.toString();
-                Toast.makeText(this, "Image uploaded to firebase successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Image uploaded to firebase successfully: "+imageURL, Toast.LENGTH_SHORT).show();
                 // set image download URL
                 image.setImageUrl(imageURL);
                 // Save Image to FireStore

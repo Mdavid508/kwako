@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -78,6 +80,14 @@ public class ActivityCustomerRegistration extends AppCompatActivity {
                 return;
             }
             // register user
+
+            User user = new User();
+            user.setUsername(name);
+            user.setEmail(email);
+            user.setPhoneNumber(phoneNo);
+            user.setWhatsAppNumber(phoneNo);
+            user.setUserType(Constants.USER_TYPE_USER);
+
             // show progress indicator
             loader.setMessage("Creating account. Please wait...");
             loader.setCanceledOnTouchOutside(false);
@@ -93,13 +103,10 @@ public class ActivityCustomerRegistration extends AppCompatActivity {
                 ;
 
                 // to save additional details of a user, you need to save this data to a Firestore database
-                // hashmap object that will be saved to firebase
-                HashMap<String, String> details = new HashMap<>();
-                details.put("username", name);
-                details.put("email", email);
-                details.put("password", password);
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
-                db.collection("Users").add(details).addOnCompleteListener(task2 -> {
+
+                db.collection("Users").document(firebaseUser.getUid()).set(user.toMap()).addOnCompleteListener(task2 -> {
                     // hide loader if showing
                     if (loader.isShowing()) loader.dismiss();
                     if (!task2.isSuccessful()) {
