@@ -100,9 +100,8 @@ public class ActivityHouseBooking extends AppCompatActivity{
             @Override
             public void onResponse(@NonNull Call<DataModal> call, @NonNull Response<DataModal> response) {
                 // this methods are called when we get response from our api.
-                Toast.makeText(ActivityHouseBooking.this, response.message(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityHouseBooking.this, response.message(), Toast.LENGTH_SHORT).show();
                 // Move this to a preloader activity and then the dialog box
-
 
                 // on below line we are setting empty text
                 // to our both edit text.
@@ -111,9 +110,12 @@ public class ActivityHouseBooking extends AppCompatActivity{
 
                 // we are getting response from our body
                 // and passing it to our dataModal class.
-                //     DataModal responseFromAPI = response.body();
+                String responseFromAPI = response.body().toString();
 
-//                Pass data to the next activity
+                // Pass data to the next activity
+                Intent intent = new Intent(ActivityHouseBooking.this, CustomDialog.class);
+                intent.putExtra("response" ,responseFromAPI);
+                startActivity(intent);
             }
 
             @SuppressLint("SetTextI18n")
@@ -121,7 +123,7 @@ public class ActivityHouseBooking extends AppCompatActivity{
             public void onFailure(@NonNull Call<DataModal> call, @NonNull Throwable t) {
                 // setting text to our text view when
                 // we get error response from API.
-
+                Toast.makeText(ActivityHouseBooking.this, "Failed to send STK Push !", Toast.LENGTH_SHORT).show();
             }
         });
     }
