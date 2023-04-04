@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
             // get user inputs
             name = edtUsername.getText().toString();
             email = edtEmail.getText().toString();
-            phoneNo =edtPhone.getText().toString();
+            phoneNo = edtPhone.getText().toString();
             password = edtPassword.getText().toString();
             cPassword = edtCPassword.getText().toString();
 
@@ -111,8 +112,9 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
                 }
 
                 // to save additional details of a user, you need to save this data to a FireStore database
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
-                db.collection("Users").add(user.toMap()).addOnCompleteListener(task2 -> {
+                db.collection("Users").document(firebaseUser.getUid()).set(user.toMap()).addOnCompleteListener(task2 -> {
                     // hide loader if showing
                     if (loader.isShowing()) loader.dismiss();
                     if (!task2.isSuccessful()) {

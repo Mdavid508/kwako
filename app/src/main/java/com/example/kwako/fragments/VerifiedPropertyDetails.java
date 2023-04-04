@@ -65,7 +65,6 @@ public class VerifiedPropertyDetails extends Fragment {
         house1.setLocation("Skuta");
         house1.setHouseType("BedSitter");
         house1.setPrice(3000);
-        house1.setSellerName("Maurice");
         Image image1 = new Image();
         image1.setImageUrl("https://bit.ly/2YoJ77H");
         Image image2 = new Image();
@@ -81,7 +80,6 @@ public class VerifiedPropertyDetails extends Fragment {
         house2.setLocation("Embassy");
         house2.setHouseType("Single");
         house2.setPrice(4000);
-        house2.setSellerName("Ashleen");
         Image image3 = new Image();
         image3.setImageUrl("https://bit.ly/2YoJ77H");
         Image image4 = new Image();

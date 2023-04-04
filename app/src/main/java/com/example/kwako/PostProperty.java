@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.kwako.models.House;
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,10 +55,11 @@ public class PostProperty extends AppCompatActivity {
             house.setLocation(location);
             house.setPrice(Double.parseDouble(price));
             house.setHouseType(type);
-            house.setOwner(Session.currentUser);
-            house.getOwner().setWhatsAppNumber(whatsAppNo);
+            User owner = Session.currentUser;
+            owner.setWhatsAppNumber(whatsAppNo);
+            house.setOwner(owner);
 
-            loader.setMessage("Uploading....");
+            loader.setMessage("Uploading house details...");
             loader.setCanceledOnTouchOutside(false);
             loader.show();
             saveHouseToFirebase(house);
