@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.kwako.adapters.AllHousesAdapter;
 import com.example.kwako.models.House;
 import com.example.kwako.models.Image;
@@ -68,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
         image4.setImageUrl("https://bit.ly/2BteuF2");
         imageList2.add(image1);
         imageList2.add(image2);
-        house1.setImages(imageList2);
+        house2.setImages(imageList2);
+
+        // add the houses to recyclerview adapter
+        houses.add(house1);
+        houses.add(house2);
 
         // bind recyclerview to fetch data from the adapter
         recyclerView.setAdapter(adapter);
