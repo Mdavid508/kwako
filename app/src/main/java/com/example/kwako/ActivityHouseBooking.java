@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kwako.models.House;
+import com.google.protobuf.StringValue;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,33 +45,52 @@ public class ActivityHouseBooking extends AppCompatActivity{
         textViewTotalAmount = null;
         editTextUnitsNumber = findViewById(R.id.editTextUnitsNumber);
 
+        String MpesaNoValue = editTextMpesaNo.getText().toString();
+
+        String UnitsNumberValue = editTextUnitsNumber.getText().toString();
+        int UnitsNumber = Integer.parseInt(UnitsNumberValue);
+
+
+        // receive data from the other side
+        House house = (House) getIntent().getSerializableExtra("House");
+        int RentAmount = (int) house.getPrice();
+        int DepositAmount = (int) house.getPrice();
+
         btnMakePayment = findViewById(R.id.btnmakepayment);
 
-        editTextUnitsNumber.setOnKeyListener( ( new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                // add logic to change the value of the edit text !
+        editTextUnitsNumber.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        // Not needed yet !
+                    }
 
-                return false;
-            }
-        });
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        // Change values on the Total Amount using this method
+                        try {
+                            int displayData = (RentAmount + DepositAmount) * UnitsNumber;
+
+                            textViewTotalAmount.setText(String.valueOf(displayData));
+
+                        }catch (NumberFormatException e){
+                            // Handle error
+                        }
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        // Not needed yet !
+                    }
+                }
+        );
 
         btnMakePayment.setOnClickListener( view -> {
             if(editTextMpesaNo.getText().toString().isEmpty() && editTextUnitsNumber.getText().toString().isEmpty()){
                 Toast.makeText(ActivityHouseBooking.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            House house = (House) getIntent().getSerializableExtra("House");
-
-            String MpesaNoValue = editTextMpesaNo.getText().toString();
-
-            String UnitsNumberValue = editTextUnitsNumber.getText().toString();
-            int UnitsNumber = Integer.parseInt(UnitsNumberValue);
-
-            // receive data from the other side
-            int RentAmount = (int) house.getPrice();
-            int DepositAmount = (int) house.getPrice();
 
             // Generate a UUID
             String IdentifierID = String.valueOf(UUID.randomUUID());
