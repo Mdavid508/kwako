@@ -13,10 +13,10 @@
 
         <ImageView
             android:id="@+id/HouseOwner"
-            android:layout_width="53.33dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="108dp"
-            android:src="@drawable/customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/ill_customer"
             android:viewportWidth="53.33"
             android:viewportHeight="40"
             app:layout_constraintEnd_toEndOf="parent"

@@ -7,10 +7,11 @@
     tools:context=".HouseOwnerDashboard">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
-        android:src="@drawable/ic_house"
+        android:src="@drawable/house_owner_dashboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,20 +20,21 @@
         android:id="@+id/addProperty"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="58dp"
         android:background="@drawable/frame_14"
         android:text="Add Property"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/logout"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/frame_14"
         android:text="Logout"
         android:textAllCaps="false"

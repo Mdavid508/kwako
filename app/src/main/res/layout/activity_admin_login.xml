@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AdminLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".AdminLogin">
+    >
 
 
     <ImageView
         android:id="@+id/HouseOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/admin" />
+        app:srcCompat="@drawable/ill_house_owner" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="36dp"
         android:text="Email"
         android:textAppearance="@style/input_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
         android:id="@+id/adminEmail"
@@ -53,11 +61,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
         android:text="Password"
         android:textAppearance="@style/input_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adminEmail" />
 
@@ -81,11 +90,13 @@
         android:layout_width="292dp"
         android:layout_height="48dp"
         android:layout_marginTop="44dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/button_login"
         android:fontFamily="sans-serif"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdminPassword" />
@@ -101,4 +112,10 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HouseOwner" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
