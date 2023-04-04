@@ -35,6 +35,8 @@ public class ActivityHouseBooking extends AppCompatActivity{
 
     Button btnMakePayment;
 
+    String IdentifierID;
+
     private static final String BASE_URL = "https://tinypesa.com/api/v1/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class ActivityHouseBooking extends AppCompatActivity{
         String UnitsNumberValue = editTextUnitsNumber.getText().toString();
         int UnitsNumber = Integer.parseInt(UnitsNumberValue);
 
+        // Generate a UUID
+        IdentifierID = String.valueOf(UUID.randomUUID());
 
         // receive data from the other side
         House house = (House) getIntent().getSerializableExtra("House");
@@ -92,9 +96,6 @@ public class ActivityHouseBooking extends AppCompatActivity{
                 return;
             }
 
-            // Generate a UUID
-            String IdentifierID = String.valueOf(UUID.randomUUID());
-
             // Get data from previous screen
             int TotalAmountPayble = (RentAmount + DepositAmount) * UnitsNumber;
 
@@ -136,7 +137,7 @@ public class ActivityHouseBooking extends AppCompatActivity{
 
                 // Pass data to the next activity
                 Intent intent = new Intent(ActivityHouseBooking.this, CustomDialog.class);
-                intent.putExtra("response" ,responseFromAPI);
+                intent.putExtra("ref" , IdentifierID);
                 startActivity(intent);
             }
 
