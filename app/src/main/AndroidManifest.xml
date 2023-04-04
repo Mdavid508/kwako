@@ -57,6 +57,9 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".CustomDialog"
+            android:exported="false" />
+        <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
         <activity
