@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 public class House implements Parcelable {
-    private String name, location, sellerName, houseType;
+    private String name, location, houseType;
     private User owner;
     private double price;
     private double lat, lon;
-    private boolean available;
+    private boolean available = false;
     private List<Image> images;
     public House(){
         // required empty default constructor
@@ -51,14 +51,6 @@ public class House implements Parcelable {
 
     public void setAvailable(boolean available) {
         this.available = available;
-    }
-
-    public String getSellerName() {
-        return sellerName;
-    }
-
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
     }
     public void setImages(List<Image> images){
         this.images = images;
@@ -105,7 +97,6 @@ public class House implements Parcelable {
         houseDetails.put("name", name);
         houseDetails.put("location", location);
         houseDetails.put("price", price);
-        houseDetails.put("sellerName", sellerName);
         houseDetails.put("houseType", houseType);
         houseDetails.put("images", images);
         houseDetails.put("lat", lat);
@@ -121,7 +112,6 @@ public class House implements Parcelable {
     protected House(Parcel in){
         name= in.readString();
         location= in.readString();
-        sellerName = in.readString();
         houseType = in.readString();
         owner = in.readParcelable(User.class.getClassLoader());
         price = in.readDouble();
@@ -140,7 +130,6 @@ public class House implements Parcelable {
     public void writeToParcel(@NonNull Parcel parcel, int flags) {
         parcel.writeString(getName());
         parcel.writeString(location);
-        parcel.writeString(sellerName);
         parcel.writeString(houseType);
         parcel.writeParcelable(owner, flags);
         parcel.writeDouble(price);

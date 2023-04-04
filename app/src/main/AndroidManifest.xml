@@ -27,6 +27,10 @@
         tools:targetApi="31">
 
         <activity
+
+            android:name=".ActivityHouseBooking"
+            android:exported = "false"/>
+        <activity
             android:name=".CustomerPayment"
             android:exported="false" />
         <activity
@@ -45,12 +49,16 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="$AIzaSyDxN0YoZ53rZXzhJjx_6tD30Vg0Tye6dwU" />
+            android:value="${MAPS_API_KEY}"
+            />
 
         <activity
             android:name=".MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".CustomDialog"
+            android:exported="false" />
         <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
@@ -110,8 +118,10 @@
         <activity
             android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
-
-
+        <activity
+            android:name=".ActivityCustomerLogin"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
