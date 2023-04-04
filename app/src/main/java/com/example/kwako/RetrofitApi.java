@@ -15,5 +15,10 @@ public interface RetrofitApi {
             @Body DataModal data
 
     );
-
+    @GET("express/get_status/{account_no}")
+    Call<ExpressGetStatusResponse> getExpressGetStatus(
+            @Path("account_no") String reference,
+            @Header("Apikey") String apikey,
+            @Header("Accept") String acceptHeader
+    );
 }
