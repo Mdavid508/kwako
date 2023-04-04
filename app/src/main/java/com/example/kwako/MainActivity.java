@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.kwako.adapters.AllHousesAdapter;
 import com.example.kwako.models.House;
 import com.example.kwako.models.Image;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // sample house dummy data
         List<Image> imageList1 = new ArrayList<>();
         List<Image> imageList2 = new ArrayList<>();
+
         House house1 = new House();
         house1.setName("Las Vegas");
         house1.setAvailable(true);
@@ -70,12 +70,11 @@ public class MainActivity extends AppCompatActivity {
         imageList2.add(image2);
         house1.setImages(imageList2);
 
+
         // bind recyclerview to fetch data from the adapter
         recyclerView.setAdapter(adapter);
         // make the layout refresh with new data
         adapter.notifyDataSetChanged();
-
-
 
     }
 }

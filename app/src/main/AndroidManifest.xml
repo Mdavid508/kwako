@@ -111,9 +111,6 @@
             android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
         <activity
-            android:name=".HouseBooking"
-            android:exported="false" />
-        <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false"
             tools:ignore="DuplicateActivity" />

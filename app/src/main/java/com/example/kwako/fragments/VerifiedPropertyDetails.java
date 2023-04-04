@@ -126,5 +126,6 @@ public class VerifiedPropertyDetails extends Fragment {
             // instantiate adapter
             adapter = new HouseAdapter(getContext(), houses);
             recyclerView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
         }
     }
