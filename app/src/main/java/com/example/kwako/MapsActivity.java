@@ -20,7 +20,7 @@ import com.google.android.material.bottomsheet.BottomSheetDragHandleView;
 
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -42,6 +42,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        // set the on click listerner for the map
+        mMap.setOnMapClickListener(this);
 
 
 //        //bottom sheet
@@ -127,31 +130,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 
-        // Add a marker in dekut and move the camera
-        LatLng dkut = new LatLng(-0.3974012, 36.9581068);
-        mMap.addMarker(new MarkerOptions().position(dkut).title("Dedan Kimathi University of Technology!"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(dkut));
-      //  adding another marker
-        LatLng kahawa = new LatLng(-0.4040506, 36.9534623);
-        mMap.addMarker(new MarkerOptions().position(kahawa).title("Kings & Queen Hostel"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(kahawa));
-        //achivers marker
-        LatLng achievers = new LatLng(-0.4040506, 36.9534623);
-        mMap.addMarker(new MarkerOptions().position(achievers).title("Achievers Hostel"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(achievers));
+        // Check that the mMap object is not null before calling any of its methods
+        if (mMap != null) {
+            // Add a marker in dekut and move the camera
+            LatLng dkut = new LatLng(-0.3974012, 36.9581068);
+            mMap.addMarker(new MarkerOptions().position(dkut).title("Dedan Kimathi University of Technology!"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(dkut));
+            //  adding another marker
+            LatLng kahawa = new LatLng(-0.4040506, 36.9534623);
+            mMap.addMarker(new MarkerOptions().position(kahawa).title("Kings & Queen Hostel"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(kahawa));
+            //achivers marker
+            LatLng achievers = new LatLng(-0.4040506, 36.9534623);
+            mMap.addMarker(new MarkerOptions().position(achievers).title("Achievers Hostel"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(achievers));
 
 
+            // Define the camera position
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(dkut)
+                    .zoom(14)
+                    .build();
 
-        // Define the camera position
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(dkut)
-                .zoom(14)
-                .build();
-
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        //set custom map style
-        //add bottom sheet
+            mMap.getUiSettings().setZoomControlsEnabled(true);
+            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            //set custom map style
+            //add bottom sheet
 //        // Add bottom sheet
 //        View bottomSheetView = findViewById(R.id.bottomSheetDragHandle);
 //        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetDragHandleView);
@@ -194,10 +198,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                String address = addressEditText.getText().toString();
 //                EditText locationEditText = findViewById(R.id.edtSetLocation);
 //                String location = locationEditText.getText().toString();
-                //Toast.makeText(this, "Location saved: " + location, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Location saved: " + location, Toast.LENGTH_SHORT).show();
 
-                // Save the location data to your database or storage mechanism
-                // ...
+            // Save the location data to your database or storage mechanism
+            // ...
 
 //              //  BottomSheetDialog.dismiss();
 //            }
@@ -206,5 +210,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //       // BottomSheetDialog.show();
 //
 //        return;
-  }
-}
+        }
+    }
+
+        @Override
+        public void onMapClick (LatLng latLng){
+            // Get the latitude and longitude of the clicked location
+            double latitude = latLng.latitude;
+            double longitude = latLng.longitude;
+
+            // Display the coordinates in a text view or use as required
+            textView.setText("Latitude: " + latitude + ", Longitude: " + longitude);
+        }
+    }

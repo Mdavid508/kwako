@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     AllHousesAdapter adapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         // make the layout refresh with new data
         adapter.notifyDataSetChanged();
-
 
 
     }
