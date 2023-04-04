@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 // declare views
 public class ActivityHouseOwnerLogin extends AppCompatActivity {
@@ -21,7 +24,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
     ProgressDialog loader;
     TextView tvRegister;
     FirebaseAuth mAuth;
-
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
         tvRegister = findViewById(R.id.tvRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // listen for btnRegister click
         btnLogin.setOnClickListener(v -> {
@@ -62,18 +66,38 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
             loader.show();
 
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-                // hide loader if is showing
-                if (loader.isShowing()) loader.dismiss();
                 // check if login is successful
                 if (!task.isSuccessful()) {
+                    if (loader.isShowing()) loader.dismiss();
                     Toast.makeText(this, "Unable to Login " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                // Login was successful. Move to main activity
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
-                startActivity(intent);
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                Toast.makeText(this, "User Id; "+firebaseUser.getUid(), Toast.LENGTH_LONG).show();
+                db.collection("Users").document(firebaseUser.getUid()).get().addOnCompleteListener(task2 -> {
+                    if (loader.isShowing()) loader.dismiss();
+                    if (!task2.isSuccessful()){
+                        Toast.makeText(this, "Unable to get your saved data: "+task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    // save user session and proceed to HouseOwner dashboard
+                    User user = task2.getResult().toObject(User.class);
+                    if (user == null) return;
+                    Toast.makeText(ActivityHouseOwnerLogin.this, user.getUsername(), Toast.LENGTH_LONG).show();
+                    // verify if a house owner
+                    if (!user.getUserType().equals(Constants.USER_TYPE_LANDLORD)){
+                        Toast.makeText(this, "Only house owners can access this page. ", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    Session.currentUser = user;
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ActivityHouseOwnerLogin.this, HouseOwnerDashboard.class);
+                    startActivity(intent);
+
+                });
             });
         });
 
