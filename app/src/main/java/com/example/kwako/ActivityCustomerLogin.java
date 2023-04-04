@@ -1,6 +1,7 @@
 package com.example.kwako;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class ActivityCustomerLogin extends AppCompatActivity {
@@ -21,8 +25,7 @@ public class ActivityCustomerLogin extends AppCompatActivity {
     ProgressDialog loader;
     TextView tvRegister;
     FirebaseAuth mAuth;
-
-
+    FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class ActivityCustomerLogin extends AppCompatActivity {
         tvRegister = findViewById(R.id.textViewRegister);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         // listen for btnRegister click
@@ -57,25 +61,35 @@ public class ActivityCustomerLogin extends AppCompatActivity {
                 return;
             }
 
-
             // Login user
             loader.setMessage("Login in progress. Please wait...");
             loader.setCanceledOnTouchOutside(false);
             loader.show();
 
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-                // hide loader if is showing
-                if (loader.isShowing()) loader.dismiss();
                 // check if login is successful
                 if (!task.isSuccessful()) {
+                    if (loader.isShowing()) loader.dismiss();
                     Toast.makeText(this, "Unable to Login " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                // Login was successful. Move to main activity
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                // Get user data from Firebase
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                db.collection("Users").document(firebaseUser.getUid()).get().addOnCompleteListener(task2 -> {
+                    if (loader.isShowing()) loader.dismiss();
+                    if (!task2.isSuccessful()){
+                        Toast.makeText(this, "Unable to get your data: "+task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    // save user session and proceed to MainActivity
+                    User user = task2.getResult().toObject(User.class);
+                    Session.currentUser = user;
+
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
+                    finish();
+                });
             });
         });
 
@@ -86,4 +100,4 @@ public class ActivityCustomerLogin extends AppCompatActivity {
         });
 
     }
-    }
+}

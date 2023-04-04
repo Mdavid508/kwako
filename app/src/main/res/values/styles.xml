@@ -12,6 +12,7 @@
     <style name="heading_1">
         <item name="android:textColor">#000000</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
 
     </style>
@@ -40,6 +41,13 @@
         <item name="textAllCaps">true</item>
 
     </style>
+    #Input label styles
+    <style name="input_label">
+        <item name="android:color">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontWeight">400</item>
+    </style>
+
     #styles for the animation Dialog
     <style name="animation">
         <item name="android:windowEnterAnimation"> @android:anim/fade_in</item>

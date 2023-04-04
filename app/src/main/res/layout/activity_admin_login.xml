@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/HouseOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="148dp"
@@ -21,14 +21,15 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="173dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="308dp"
         android:layout_marginEnd="36dp"
         android:text="Email"
+        android:textAppearance="@style/input_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +42,7 @@
         android:layout_marginEnd="36dp"
         android:background="@drawable/frame_9"
         android:ems="10"
+        android:paddingStart="16dp"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -53,6 +55,7 @@
         android:layout_height="19dp"
         android:layout_marginTop="20dp"
         android:text="Password"
+        android:textAppearance="@style/input_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +70,26 @@
         android:layout_marginEnd="36dp"
         android:background="@drawable/frame_9"
         android:ems="10"
+        android:paddingStart="16dp"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/button_remove"
+        android:layout_width="292dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/button_login"
+        android:fontFamily="sans-serif"
+        android:text="Remove this after"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AdminPassword" />
 
     <Button
         android:id="@+id/button_login"
@@ -96,5 +115,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/HouseOwner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

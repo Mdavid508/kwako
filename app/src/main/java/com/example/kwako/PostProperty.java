@@ -2,45 +2,89 @@ package com.example.kwako;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.kwako.models.House;
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PostProperty extends AppCompatActivity {
     ImageView previousImageView;
-    EditText edtLocation, edtPhone , edtWhatsAppNo,edtPrice;
+    EditText edtLocation, edtHouseType, edtPhone, edtWhatsAppNo, edtPrice;
     Button nextBtn;
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
+    ProgressDialog loader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_property);
         //initialize views
-        edtLocation=findViewById(R.id.edtLocation);
-        edtPhone=findViewById(R.id.edtPhone);
-        edtPrice=findViewById(R.id.edtPrice);
-        edtWhatsAppNo=findViewById(R.id.edtWhatsAppNo);
+        edtLocation = findViewById(R.id.edtLocation);
+        edtHouseType = findViewById(R.id.edtHouseType);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPrice = findViewById(R.id.edtPrice);
+        edtWhatsAppNo = findViewById(R.id.edtWhatsAppNo);
         nextBtn = findViewById(R.id.nextbtn);
         previousImageView = findViewById(R.id.previousImageView);
-        mAuth=FirebaseAuth.getInstance();
-
-
+        loader = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         //this is the button that will take the house owner to the next page.
         nextBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, UploadImages.class);
-            startActivity(intent);
+            String location, price, type, phoneNo, whatsAppNo;
+            location = edtLocation.getText().toString().trim();
+            price = edtPrice.getText().toString().trim();
+            type = edtHouseType.getText().toString().trim();
+            phoneNo = edtPhone.getText().toString().trim();
+            whatsAppNo = edtWhatsAppNo.getText().toString().trim();
+            // get house infomation
+            House house = new House();
+            house.setName("");
+            house.setLocation(location);
+            house.setPrice(Double.parseDouble(price));
+            house.setHouseType(type);
+            User owner = Session.currentUser;
+            owner.setWhatsAppNumber(whatsAppNo);
+            house.setOwner(owner);
+
+            loader.setMessage("Uploading house details...");
+            loader.setCanceledOnTouchOutside(false);
+            loader.show();
+            saveHouseToFirebase(house);
         });
+
         //the previous button that will take the house owner to the previous page.
         previousImageView.setOnClickListener(view -> {
             finish();
+        });
+    }
+
+    private void saveHouseToFirebase(House house) {
+        db.collection("Houses").add(house.toMap()).addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                if (loader.isShowing()) loader.dismiss();
+                Toast.makeText(this, "Unable to save house: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String houseId  = task.getResult().getId();
+            // house uploaded successfully
+            Toast.makeText(this, "House data uploaded successfully ", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, UploadImages.class);
+            intent.putExtra("houseId", houseId);
+            startActivity(intent);
         });
     }
 }
