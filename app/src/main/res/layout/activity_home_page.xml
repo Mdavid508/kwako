@@ -11,32 +11,21 @@
         android:layout_width="203dp"
         android:layout_height="210dp"
         android:layout_marginTop="56dp"
-        android:src="@drawable/ic_h"
+        android:src="@drawable/kwako_home_page"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="KWAKO"
-        android:textAppearance="@style/heading_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
         android:id="@+id/tvHomeLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:text="LOGIN AS"
         android:textAppearance="@style/heading_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/tvHouseRegister"
@@ -44,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Don`t Have an Account?Register"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonHouseOwner"
         app:layout_constraintStart_toStartOf="@+id/imageButtonHouseOwner"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonHouseOwner" />
@@ -55,6 +45,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginBottom="97dp"
         android:text="Don`t Have An Account?Register"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonTenant"
         app:layout_constraintStart_toStartOf="@+id/imageButtonTenant"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonTenant" />
@@ -69,6 +60,7 @@
         android:text="House Owner"
         android:layout_marginLeft="128dp"
         android:layout_marginRight="94dp"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonHouseOwner"
         app:layout_constraintHorizontal_bias="0.624"
         app:layout_constraintStart_toStartOf="@+id/imageButtonHouseOwner"
@@ -98,6 +90,7 @@
         android:layout_marginLeft="151dp"
         android:layout_marginRight="117dp"
         android:textAlignment="center"
+        android:textAppearance="@style/normal_text"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonTenant"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="@+id/imageButtonTenant"
@@ -142,6 +135,7 @@
         android:layout_marginBottom="14.5dp"
         android:elevation="10dp"
         android:text="Admin Login"
+        android:textAppearance="@style/normal_text"
         android:layout_marginLeft="131.5dp"
         android:layout_marginRight="97.5dp"
         android:textAlignment="center"

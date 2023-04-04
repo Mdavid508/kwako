@@ -58,7 +58,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
         holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
         holder.tvLocation.setText(house.getLocation());
         holder.tvPrice.setText("Ksh. "+house.getPrice());
-        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
+//        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
         holder.tvHouseType.setText(house.getHouseType());
 
         holder.btnBook.setOnClickListener(view -> {
@@ -91,7 +91,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             imageSlider = itemView.findViewById(R.id.imageSlider);
             tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-//            tvPhone = itemView.findViewById(R.id.tvPhone);
+//            tvPhone = tvPhoneitemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
 
             btnBook = itemView.findViewById(R.id.btnBook);
