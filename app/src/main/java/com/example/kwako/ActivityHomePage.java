@@ -67,10 +67,10 @@ public class ActivityHomePage extends AppCompatActivity {
         });
 
         //bottom sheet trial
-        textView9.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityHomePage.this, VerifyPropertyDetails.class);
-            startActivity(intent);
-        });
+//        textView9.setOnClickListener(v -> {
+//            Intent intent = new Intent(ActivityHomePage.this, VerifyPropertyDetails.class);
+//            startActivity(intent);
+//        });
 
     }
 

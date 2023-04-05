@@ -10,18 +10,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
 public class ActivityHouseOwnerRegister extends AppCompatActivity {
-
     // declare views
     EditText edtUsername, edtEmail, edtPassword, edtCPassword, edtPhone;
     Button btnRegister;
     TextView tvLogin;
-    String name, email, password, cPassword, phoneno;
+    String name, email, password, cPassword, phoneNo;
     ProgressDialog loader;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
@@ -50,15 +51,9 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
             // get user inputs
             name = edtUsername.getText().toString();
             email = edtEmail.getText().toString();
-            phoneno=edtPhone.getText().toString();
+            phoneNo = edtPhone.getText().toString();
             password = edtPassword.getText().toString();
             cPassword = edtCPassword.getText().toString();
-
-
-
-
-
-
 
             // check for empty fields
             if (email.isEmpty()) {
@@ -71,7 +66,7 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
                 edtUsername.requestFocus();
                 return;
             }
-            if (phoneno.isEmpty()) {
+            if (phoneNo.isEmpty()) {
                 edtPhone.setError("Phone No is required");
                 edtPhone.requestFocus();
                 return;
@@ -94,6 +89,14 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
                 edtCPassword.requestFocus();
                 return;
             }
+
+            User user = new User();
+            user.setUsername(name);
+            user.setEmail(email);
+            user.setPhoneNumber(phoneNo);
+            user.setWhatsAppNumber(phoneNo);
+            user.setUserType(Constants.USER_TYPE_LANDLORD);
+
             // register user
             // show progress indicator
             loader.setMessage("Creating account. Please wait...");
@@ -107,16 +110,11 @@ public class ActivityHouseOwnerRegister extends AppCompatActivity {
                     if (loader.isShowing()) loader.dismiss();
                     return;
                 }
-                ;
 
-                // to save additional details of a user, you need to save this data to a Firestore database
-                // hashmap object that will be saved to firebase
-                HashMap<String, String> details = new HashMap<>();
-                details.put("username", name);
-                details.put("email", email);
-                details.put("password", password);
+                // to save additional details of a user, you need to save this data to a FireStore database
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
-                db.collection("Users").add(details).addOnCompleteListener(task2 -> {
+                db.collection("Users").document(firebaseUser.getUid()).set(user.toMap()).addOnCompleteListener(task2 -> {
                     // hide loader if showing
                     if (loader.isShowing()) loader.dismiss();
                     if (!task2.isSuccessful()) {

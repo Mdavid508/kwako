@@ -53,6 +53,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
 
         holder.tvLocationPin.setOnClickListener(holder.onLocationListener);
         holder.btnBook.setOnClickListener(holder.onBookListener);
+
 //        holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
 //        holder.tvLocation.setText(house.getLocation());
 //        holder.tvPrice.setText("Ksh. "+house.getPrice());
@@ -63,6 +64,13 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
         holder.tvPrice.setText("Ksh. 24445");
         holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
         holder.tvHouseType.setText("bBedSSitter");
+
+        holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
+        holder.tvLocation.setText(house.getLocation());
+        holder.tvPrice.setText("Ksh. "+house.getPrice());
+//        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
+        holder.tvHouseType.setText(house.getHouseType());
+
 
         holder.btnBook.setOnClickListener(view -> {
             Toast.makeText(context, "Booking coming soon", Toast.LENGTH_SHORT).show();
@@ -94,7 +102,7 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             imageSlider = itemView.findViewById(R.id.imageSlider);
             tvLocation = itemView.findViewById(R.id.tvSetLocation);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-//            tvPhone = itemView.findViewById(R.id.tvPhone);
+//            tvPhone = tvPhoneitemView.findViewById(R.id.tvPhone);
             tvHouseType = itemView.findViewById(R.id.tvHouseType);
 
             btnBook = itemView.findViewById(R.id.btnBook);
