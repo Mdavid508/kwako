@@ -1,7 +1,5 @@
 package com.example.kwako;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kwako.models.House;
 
@@ -46,7 +46,7 @@ public class HouseBooking extends AppCompatActivity {
 
 //        initialization of dialog
         dialog = new Dialog(HouseBooking.this);
-        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setContentView(R.layout.activity_custom_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         dialog.setCancelable(false);
