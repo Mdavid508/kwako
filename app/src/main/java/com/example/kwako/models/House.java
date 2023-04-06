@@ -92,7 +92,7 @@ public class House implements Parcelable {
         return lon;
     }
 
-    public void setLon(long lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 

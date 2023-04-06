@@ -23,6 +23,7 @@ public class PostProperty extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     ProgressDialog loader;
+    double latitude, longitude;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +43,9 @@ public class PostProperty extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        // get latitude and longitude data passed via intent
+        latitude = getIntent().getDoubleExtra("latitude", 0);
+        longitude = getIntent().getDoubleExtra("longitude", 0);
 
         //setlocation btn that opens the map
 
@@ -58,6 +62,12 @@ public class PostProperty extends AppCompatActivity {
             type = edtHouseType.getText().toString().trim();
             phoneNo = edtPhone.getText().toString().trim();
             whatsAppNo = edtWhatsAppNo.getText().toString().trim();
+
+            // verify whether user has selected location
+            if(latitude == 0 || longitude == 0){
+                // user has not selected location
+            }
+
             // get house infomation
             House house = new House();
             house.setName("");
@@ -66,6 +76,8 @@ public class PostProperty extends AppCompatActivity {
             house.setHouseType(type);
             User owner = Session.currentUser;
             owner.setWhatsAppNumber(whatsAppNo);
+            house.setLat(latitude);
+            house.setLon(longitude);
             house.setOwner(owner);
 
             loader.setMessage("Uploading house details...");
