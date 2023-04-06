@@ -27,7 +27,7 @@ public class ActivityHouseBooking extends AppCompatActivity{
 
     EditText editTextUnitsNumber;
 
-    TextView textViewTotalAmount;
+    TextView tvTotalAmount, tvPrice, tvDeposit;
 
     EditText editTextMpesaNo;
 
@@ -42,23 +42,23 @@ public class ActivityHouseBooking extends AppCompatActivity{
         setContentView(R.layout.activity_house_booking);
 
         editTextMpesaNo = findViewById(R.id.editTextMpesaNo);
-        textViewTotalAmount = null;
+        tvPrice = findViewById(R.id.tvPrice);
+        tvDeposit = findViewById(R.id.tvDeposit);
+        tvTotalAmount = findViewById(R.id.tvTotalAmount);
         editTextUnitsNumber = findViewById(R.id.editTextUnitsNumber);
-
-        String MpesaNoValue = editTextMpesaNo.getText().toString();
-
-        String UnitsNumberValue = editTextUnitsNumber.getText().toString();
-        int UnitsNumber = Integer.parseInt(UnitsNumberValue);
+        btnMakePayment = findViewById(R.id.btnmakepayment);
 
         // Generate a UUID
         IdentifierID = String.valueOf(UUID.randomUUID());
 
         // receive data from the other side
-        House house = (House) getIntent().getSerializableExtra("House");
+        House house = getIntent().getParcelableExtra("house");
         int RentAmount = (int) house.getPrice();
         int DepositAmount = (int) house.getPrice();
 
-        btnMakePayment = findViewById(R.id.btnmakepayment);
+        // set rent and deposit
+        tvPrice.setText("Ksh. "+house.getPrice());
+        tvDeposit.setText("Ksh. "+house.getPrice());
 
         editTextUnitsNumber.addTextChangedListener(
                 new TextWatcher() {
@@ -71,12 +71,15 @@ public class ActivityHouseBooking extends AppCompatActivity{
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                         // Change values on the Total Amount using this method
                         try {
+                            String UnitsNumberValue = editTextUnitsNumber.getText().toString();
+                            int UnitsNumber = Integer.parseInt(UnitsNumberValue);
                             int displayData = (RentAmount + DepositAmount) * UnitsNumber;
 
-                            textViewTotalAmount.setText(String.valueOf(displayData));
+                            tvTotalAmount.setText(String.valueOf(displayData));
 
                         }catch (NumberFormatException e){
-                            // Handle error
+                            // Empty or invalid number of units entered
+                            tvTotalAmount.setText("");
                         }
 
                     }
@@ -89,16 +92,19 @@ public class ActivityHouseBooking extends AppCompatActivity{
         );
 
         btnMakePayment.setOnClickListener( view -> {
+            String mPesaNo = editTextMpesaNo.getText().toString();
+
+            String UnitsNumberValue = editTextUnitsNumber.getText().toString();
+
             if(editTextMpesaNo.getText().toString().isEmpty() && editTextUnitsNumber.getText().toString().isEmpty()){
                 Toast.makeText(ActivityHouseBooking.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            int units = Integer.parseInt(UnitsNumberValue);
             // Get data from previous screen
-            int TotalAmountPayble = (RentAmount + DepositAmount) * UnitsNumber;
+            int TotalAmountPayble = (RentAmount + DepositAmount) * units;
 
-            postData(MpesaNoValue, TotalAmountPayble, IdentifierID);
-
+            postData(mPesaNo, TotalAmountPayble, IdentifierID);
         });
 
     }

@@ -1,13 +1,11 @@
 package com.example.kwako;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,8 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CustomDialog extends AppCompatActivity {
 
-    TextView textViewResponse;
-    Button btnResponse;
+    TextView textViewResponse, tvConfirm;
     String reference;
     private static final String BASE_URL = "https://tinypesa.com/api/v1/";
 
@@ -36,9 +33,9 @@ public class CustomDialog extends AppCompatActivity {
 
 
         // wait for button implementation
-        btnResponse = null;
+        tvConfirm = findViewById(R.id.tvConfirm);
 
-        btnResponse.setOnClickListener(view -> {
+        tvConfirm.setOnClickListener(view -> {
             if(reference.isEmpty()){
                 Toast.makeText(CustomDialog.this, "Missing Parameters", Toast.LENGTH_SHORT).show();
                 return;

@@ -76,13 +76,13 @@
             android:textAppearance="@style/heading_2"
             android:textColor="#121E61"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textViewKshs3500"
+            app:layout_constraintEnd_toEndOf="@+id/tvPrice"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textViewKshs3500"
+            app:layout_constraintStart_toStartOf="@+id/tvPrice"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewKshs3500"
+            android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
@@ -92,7 +92,7 @@
             android:textAppearance="@style/normal_text"
 
             app:layout_constraintBottom_toTopOf="@+id/textViewUnitsNumber"
-            app:layout_constraintEnd_toStartOf="@+id/textViewKShs"
+            app:layout_constraintEnd_toStartOf="@+id/tvDeposit"
             app:layout_constraintHorizontal_bias="0.018"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPrice" />
@@ -107,13 +107,13 @@
             android:textAppearance="@style/heading_2"
             android:textColor="#121E61"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textViewKShs"
+            app:layout_constraintEnd_toEndOf="@+id/tvDeposit"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textViewKShs"
+            app:layout_constraintStart_toStartOf="@+id/tvDeposit"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewKShs"
+            android:id="@+id/tvDeposit"
             android:layout_width="82dp"
             android:layout_height="19dp"
             android:layout_marginTop="8dp"
@@ -163,10 +163,10 @@
             android:text="Total Amount"
             android:textAppearance="@style/input_label"
 
-            app:layout_constraintBottom_toTopOf="@+id/tvtotalamount"
-            app:layout_constraintEnd_toEndOf="@+id/tvtotalamount"
+            app:layout_constraintBottom_toTopOf="@+id/tvTotalAmount"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotalAmount"
             app:layout_constraintHorizontal_bias="0.014"
-            app:layout_constraintStart_toStartOf="@+id/tvtotalamount" />
+            app:layout_constraintStart_toStartOf="@+id/tvTotalAmount" />
 
         <TextView
             android:id="@+id/textViewMpesaNo"
@@ -194,7 +194,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvtotalamount" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalAmount" />
 
         <TextView
             android:id="@+id/textViewWarning"
@@ -225,7 +225,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewWarning" />
 
         <TextView
-            android:id="@+id/tvtotalamount"
+            android:id="@+id/tvTotalAmount"
             android:layout_width="292dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"

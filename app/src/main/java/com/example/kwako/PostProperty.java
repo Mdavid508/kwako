@@ -1,6 +1,5 @@
 package com.example.kwako;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kwako.models.House;
-import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PostProperty extends AppCompatActivity {
@@ -24,8 +23,7 @@ public class PostProperty extends AppCompatActivity {
     FirebaseFirestore db;
     ProgressDialog loader;
     double latitude, longitude;
-
-    @SuppressLint("MissingInflatedId")
+    FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +40,7 @@ public class PostProperty extends AppCompatActivity {
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
 
         // get latitude and longitude data passed via intent
         latitude = getIntent().getDoubleExtra("latitude", 0);
@@ -57,36 +56,29 @@ public class PostProperty extends AppCompatActivity {
         //this is the button that will take the house owner to the next page.
         nextBtn.setOnClickListener(view -> {
             String location, price, type, phoneNo, whatsAppNo;
-            location = edtLocation.getText().toString().trim();
+            String ownerRef = "Users/"+firebaseUser.getUid();
             price = edtPrice.getText().toString().trim();
             type = edtHouseType.getText().toString().trim();
-            phoneNo = edtPhone.getText().toString().trim();
-            whatsAppNo = edtWhatsAppNo.getText().toString().trim();
 
             // verify whether user has selected location
             if(latitude == 0 || longitude == 0){
                 // user has not selected location
             }
 
-            // get house infomation
+            // get house information
             House house = new House();
             house.setName("");
-            house.setLocation(location);
             house.setPrice(Double.parseDouble(price));
             house.setHouseType(type);
-            User owner = Session.currentUser;
-            owner.setWhatsAppNumber(whatsAppNo);
             house.setLat(latitude);
             house.setLon(longitude);
-            house.setOwner(owner);
+            house.setOwnerRef(ownerRef);
+
 
             loader.setMessage("Uploading house details...");
             loader.setCanceledOnTouchOutside(false);
             loader.show();
             saveHouseToFirebase(house);
-            //take user to the next page
-            Intent intent = new Intent(this,UploadImages.class);
-            startActivity(intent);
         });
 
         //the previous button that will take the house owner to the previous page.

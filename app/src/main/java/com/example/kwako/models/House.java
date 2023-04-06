@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class House implements Parcelable {
-    private String id, name, location, houseType;
+    private String id, name, location, houseType, ownerRef;
     private User owner;
     private double price;
     private double lat, lon;
@@ -112,10 +112,17 @@ public class House implements Parcelable {
         isVerified = verified;
     }
 
+    public String getOwnerRef() {
+        return ownerRef;
+    }
+
+    public void setOwnerRef(String ownerRef) {
+        this.ownerRef = ownerRef;
+    }
+
     public Map<String, Object> toMap(){
         Map<String, Object> houseDetails = new HashMap<>();
         houseDetails.put("name", name);
-        houseDetails.put("location", location);
         houseDetails.put("price", price);
         houseDetails.put("houseType", houseType);
         houseDetails.put("images", images);
@@ -123,7 +130,7 @@ public class House implements Parcelable {
         houseDetails.put("lon", lon);
         houseDetails.put("isVerified", isVerified);
         houseDetails.put("isAvailable", isAvailable);
-        houseDetails.put("owner", owner);
+        houseDetails.put("ownerRef", ownerRef);
         return houseDetails;
     }
 
