@@ -62,9 +62,7 @@
         <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
-        <activity
-            android:name=".HouseBooking"
-            android:exported="false" />
+
         <activity
             android:name=".ActivityHomePage"
             android:exported="true">
