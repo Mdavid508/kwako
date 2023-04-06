@@ -1,9 +1,11 @@
 package com.example.kwako;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -109,8 +111,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         bottomSheetBehavior.setPeekHeight(400);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         btnSetLocation.setOnClickListener(v -> {
-            //  update firebase
-
+            //  continue with house upload
+            Toast.makeText(this, "Location has been selected successfully", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MapsActivity.this, PostProperty.class);
+            intent.putExtra("latitude", latitude);
+            intent.putExtra("longitude", longitude);
+            startActivity(intent);
+            finish();
         });
     }
     @Override

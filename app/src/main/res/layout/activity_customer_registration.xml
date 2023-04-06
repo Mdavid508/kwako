@@ -13,27 +13,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/HouseOwner"
-        android:layout_width="53.33dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/customer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/HouseOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/ill_customer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewRegisterCustomer"
-        android:layout_width="287dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
+        <TextView
+            android:id="@+id/textViewRegisterCustomer"
+            android:layout_width="287dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="24dp"
 
-        android:textAppearance="@style/normal_text"
-        android:text="Register as a Customer to increase your chances of getting yourself a nice apartment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HouseOwner" />
+            android:text="Register as a Customer to increase your chances of getting yourself a nice apartment"
+            android:textAppearance="@style/normal_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/HouseOwner" />
 
         <TextView
             android:id="@+id/textViewEmail"

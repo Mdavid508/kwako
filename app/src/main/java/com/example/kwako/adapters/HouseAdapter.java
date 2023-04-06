@@ -16,9 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kwako.MapsActivity;
 import com.example.kwako.R;
 import com.example.kwako.models.House;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
     private List<House> houses;
@@ -107,7 +112,47 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyHolder> {
                 // house not available
                 ivSwitchOff.setImageResource(R.drawable.ic_switch_off);
             }
+            // sethouse is verified
+            ivSwitchOff.setOnClickListener(v -> {
+
+            });
+        }
+
+        // set house as verified
+        private void setHouseVerified(House house){
+            // Get a reference to the house document in Firestore
+            DocumentReference houseRef = FirebaseFirestore.getInstance()
+                    .collection("Houses")
+                    .document(house.getId());
+
+// Set the verified field to true
+            Map<String, Object> updates = new HashMap<>();
+            updates.put("isVerified", true);
+
+// Update the house document with the new field value
+            houseRef.update(updates)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Verification successful. Remove item from list
+                            removeHouse(house);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Verification failed
+                        }
+                    });
+
+        }
+
+        // remove uploaded house from recyclerview
+        private void removeHouse(House house){
+//            houses.remove(house);
         }
 
     }
+
+
 }

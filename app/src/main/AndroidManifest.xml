@@ -28,7 +28,7 @@
 
         <activity
 
-            android:name=".ActivityHouseBooking"
+            android:name=".HouseBooking"
             android:exported = "false"/>
         <activity
             android:name=".CustomerPayment"
@@ -62,9 +62,7 @@
         <activity
             android:name=".ActivityCustomerLogin"
             android:exported="false" />
-        <activity
-            android:name=".HouseBooking"
-            android:exported="false" />
+
         <activity
             android:name=".ActivityHomePage"
             android:exported="true">
@@ -118,10 +116,7 @@
         <activity
             android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
-        <activity
-            android:name=".ActivityCustomerLogin"
-            android:exported="false"
-            tools:ignore="DuplicateActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

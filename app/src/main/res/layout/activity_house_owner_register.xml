@@ -13,10 +13,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="93dp"
-        android:layout_height="87dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:src="@drawable/ic_house"
+        android:src="@drawable/ill_house_owner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

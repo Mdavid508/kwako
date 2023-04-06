@@ -62,7 +62,7 @@ public class ActivityHomePage extends AppCompatActivity {
         });
         //open maps
         tvHomeLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(ActivityHomePage.this, MapsActivity.class);
+            Intent intent = new Intent(ActivityHomePage.this, UploadImages.class);
             startActivity(intent);
         });
 
