@@ -15,7 +15,7 @@
             android:layout_width="203dp"
             android:layout_height="210dp"
             android:layout_marginTop="56dp"
-            android:src="@drawable/ic_h"
+            android:src="@drawable/kwako_home_page"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -1,5 +1,6 @@
 package com.example.kwako;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,27 +19,36 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class PostProperty extends AppCompatActivity {
     ImageView previousImageView;
     EditText edtLocation, edtHouseType, edtPhone, edtWhatsAppNo, edtPrice;
-    Button nextBtn;
+    Button nextBtn, setLocation;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
     ProgressDialog loader;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_property);
         //initialize views
-        edtLocation = findViewById(R.id.edtLocation);
+//        edtLocation = findViewById(R.id.edtLocation);
         edtHouseType = findViewById(R.id.edtHouseType);
         edtPhone = findViewById(R.id.edtPhone);
         edtPrice = findViewById(R.id.edtPrice);
         edtWhatsAppNo = findViewById(R.id.edtWhatsAppNo);
         nextBtn = findViewById(R.id.nextbtn);
+        setLocation = findViewById(R.id.btnSetLocation);
         previousImageView = findViewById(R.id.previousImageView);
         loader = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+
+        //setlocation btn that opens the map
+
+        setLocation.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+        });
 
         //this is the button that will take the house owner to the next page.
         nextBtn.setOnClickListener(view -> {
@@ -62,6 +72,9 @@ public class PostProperty extends AppCompatActivity {
             loader.setCanceledOnTouchOutside(false);
             loader.show();
             saveHouseToFirebase(house);
+            //take user to the next page
+            Intent intent = new Intent(this,UploadImages.class);
+            startActivity(intent);
         });
 
         //the previous button that will take the house owner to the previous page.
