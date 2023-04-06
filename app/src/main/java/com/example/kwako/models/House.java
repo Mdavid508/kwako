@@ -11,14 +11,26 @@ import java.util.List;
 import java.util.Map;
 
 public class House implements Parcelable {
-    private String name, location, houseType;
+    private String id, name, location, houseType;
     private User owner;
     private double price;
     private double lat, lon;
-    private boolean available = false;
+    private boolean isAvailable = false;
+
+
+
+    private boolean isVerified = false;
     private List<Image> images;
     public House(){
         // required empty default constructor
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,11 +58,11 @@ public class House implements Parcelable {
     }
 
     public boolean isAvailable() {
-        return available;
+        return isAvailable;
     }
 
     public void setAvailable(boolean available) {
-        this.available = available;
+        this.isAvailable = available;
     }
     public void setImages(List<Image> images){
         this.images = images;
@@ -91,6 +103,14 @@ public class House implements Parcelable {
     public void setHouseType(String houseType) {
         this.houseType = houseType;
     }
+    //isverified getter and setter
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        isVerified = verified;
+    }
 
     public Map<String, Object> toMap(){
         Map<String, Object> houseDetails = new HashMap<>();
@@ -101,6 +121,8 @@ public class House implements Parcelable {
         houseDetails.put("images", images);
         houseDetails.put("lat", lat);
         houseDetails.put("lon", lon);
+        houseDetails.put("isVerified", isVerified);
+        houseDetails.put("isAvailable", isAvailable);
         houseDetails.put("owner", owner);
         return houseDetails;
     }
@@ -118,7 +140,7 @@ public class House implements Parcelable {
         lat = in.readDouble();
         lon = in.readDouble();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            available = in.readBoolean();
+            isAvailable = in.readBoolean();
         }
     }
     @Override
@@ -136,9 +158,10 @@ public class House implements Parcelable {
         parcel.writeDouble(lat);
         parcel.writeDouble(lon);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            parcel.writeBoolean(available);
+            parcel.writeBoolean(isAvailable);
         }
     }
+    //is verified or not admin functionality
 
     public static Creator<House> CREATOR = new Creator<House>() {
         @Override
