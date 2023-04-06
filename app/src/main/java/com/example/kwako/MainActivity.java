@@ -1,6 +1,8 @@
 package com.example.kwako;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kwako.adapters.AllHousesAdapter;
 import com.example.kwako.models.House;
-import com.example.kwako.models.Image;
+import com.example.kwako.models.User;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<House> houses;
     AllHousesAdapter adapter;
+    ProgressDialog loader;
 
 
     @Override
@@ -33,50 +38,46 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         db =FirebaseFirestore.getInstance();
+        loader = new ProgressDialog(this);
+        loader.setCanceledOnTouchOutside(false);
+
         houses = new ArrayList<>();
         adapter = new AllHousesAdapter(this, houses);
-        // sample house dummy data
-        List<Image> imageList1 = new ArrayList<>();
-        List<Image> imageList2 = new ArrayList<>();
-
-        House house1 = new House();
-        house1.setName("Las Vegas");
-        house1.setAvailable(true);
-        house1.setLocation("Skuta");
-        house1.setHouseType("BedSitter");
-        house1.setPrice(3000);
-        Image image1 = new Image();
-        image1.setImageUrl("https://bit.ly/2YoJ77H");
-        Image image2 = new Image();
-        image2.setImageUrl("https://bit.ly/2BteuF2");
-        imageList1.add(image1);
-        imageList1.add(image2);
-        house1.setImages(imageList1);
-
-        // sample house dummy data
-        House house2 = new House();
-        house2.setName("Brights Hostels");
-        house2.setAvailable(true);
-        house2.setLocation("Embassy");
-        house2.setHouseType("Single");
-        house2.setPrice(3000);
-        Image image3 = new Image();
-        image3.setImageUrl("https://bit.ly/2YoJ77H");
-        Image image4 = new Image();
-        image4.setImageUrl("https://bit.ly/2BteuF2");
-        imageList2.add(image1);
-        imageList2.add(image2);
-        house2.setImages(imageList2);
-
-        // add the houses to recyclerview adapter
-        houses.add(house1);
-        houses.add(house2);
-
-
         // bind recyclerview to fetch data from the adapter
         recyclerView.setAdapter(adapter);
+
+        db.collection("Houses").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            ArrayList<House> houses = new ArrayList<>();
+            for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots.getDocuments()){
+                if (!documentSnapshot.exists()){
+                    Toast.makeText(this, "Unable to get houses", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                House house = documentSnapshot.toObject(House.class);
+                // get house owner
+                DocumentReference userRef = documentSnapshot.getDocumentReference("ownerRef");
+                userRef.get().addOnSuccessListener(documentSnapshot1 -> {
+                    if (!documentSnapshot1.exists()){
+                        Toast.makeText(this, "House owner is empty", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    User owner = documentSnapshot1.toObject(User.class);
+                    house.setOwner(owner);
+                    houses.add(house);
+
+                    adapter.notifyDataSetChanged();
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error getting house owner: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Error getting house data: "+e.getMessage(), Toast.LENGTH_LONG).show();
+        });
+
         // make the layout refresh with new data
         adapter.notifyDataSetChanged();
-
     }
 }
