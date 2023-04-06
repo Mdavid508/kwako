@@ -1,16 +1,11 @@
 package com.example.kwako.fragments;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -133,19 +128,16 @@ public class VerifiedPropertyDetails extends Fragment {
             house1.setAvailable(true);
             house1.setLocation("Kimathi Way");
             house1.setPrice(3500);
-            house1.setSellerName("Mr. Almond");
             House house2 = new House();
             house2.setName("Kens Hostels");
             house2.setAvailable(false);
             house2.setLocation("Kimathi Way");
             house2.setPrice(3500);
-            house2.setSellerName("Mr. Almond");
             House house3 = new House();
             house3.setName("Kens Hostels");
             house3.setAvailable(true);
             house3.setLocation("Kimathi Way");
             house3.setPrice(3500);
-            house3.setSellerName("Mr. Almond");
 
             // add to arrayList
             houses.add(house1);
