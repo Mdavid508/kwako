@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // sample house dummy data
         List<Image> imageList1 = new ArrayList<>();
         List<Image> imageList2 = new ArrayList<>();
+
         House house1 = new House();
         house1.setName("Las Vegas");
         house1.setAvailable(true);
@@ -71,12 +72,11 @@ public class MainActivity extends AppCompatActivity {
         houses.add(house1);
         houses.add(house2);
 
+
         // bind recyclerview to fetch data from the adapter
         recyclerView.setAdapter(adapter);
         // make the layout refresh with new data
         adapter.notifyDataSetChanged();
-
-
 
     }
 }

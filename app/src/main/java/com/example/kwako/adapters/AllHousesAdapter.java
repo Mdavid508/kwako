@@ -13,12 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-
-import com.example.kwako.MapsActivity;
-
 import com.example.kwako.HouseBooking;
-
+import com.example.kwako.MapsActivity;
 import com.example.kwako.R;
 import com.example.kwako.models.House;
 import com.example.kwako.models.Image;
@@ -55,11 +53,24 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
 
         holder.tvLocationPin.setOnClickListener(holder.onLocationListener);
         holder.btnBook.setOnClickListener(holder.onBookListener);
+
+//        holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
+//        holder.tvLocation.setText(house.getLocation());
+//        holder.tvPrice.setText("Ksh. "+house.getPrice());
+//        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
+//        holder.tvHouseType.setText(house.getHouseType());
+        holder.imageSlider.setImageList(getSlideModels(), ScaleTypes.FIT);
+        holder.tvLocation.setText("Test Location");
+        holder.tvPrice.setText("Ksh. 24445");
+        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
+        holder.tvHouseType.setText("bBedSSitter");
+
         holder.imageSlider.setImageList(generateSlideModels(house.getImages()));
         holder.tvLocation.setText(house.getLocation());
         holder.tvPrice.setText("Ksh. "+house.getPrice());
 //        holder.tvPhone.setText("0723329281"); // TODO: use houseOwner.getPhoneNumber() instead
         holder.tvHouseType.setText(house.getHouseType());
+
 
         holder.btnBook.setOnClickListener(view -> {
             Toast.makeText(context, "Booking coming soon", Toast.LENGTH_SHORT).show();
@@ -121,5 +132,14 @@ public class AllHousesAdapter extends RecyclerView.Adapter<AllHousesAdapter.MyVi
             slideModels.add(new SlideModel(image.getImageUrl(), "", null));
         }
         return slideModels;
+    }
+
+    private List<SlideModel> getSlideModels(){
+        List<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel("https://bit.ly/2YoJ77H", "Some  random image", null));
+        slideModels.add(new SlideModel("https://bit.ly/2YoJ77H", "Image Two", null));
+        slideModels.add(new SlideModel("https://bit.ly/2YoJ77H", "Image 3", null));
+        return slideModels;
+
     }
 }
