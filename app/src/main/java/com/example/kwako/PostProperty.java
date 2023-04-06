@@ -57,7 +57,6 @@ public class PostProperty extends AppCompatActivity {
         nextBtn.setOnClickListener(view -> {
             String location, price, type, phoneNo, whatsAppNo;
             String ownerRef = "Users/"+firebaseUser.getUid();
-            location = edtLocation.getText().toString().trim();
             price = edtPrice.getText().toString().trim();
             type = edtHouseType.getText().toString().trim();
 
@@ -69,7 +68,6 @@ public class PostProperty extends AppCompatActivity {
             // get house information
             House house = new House();
             house.setName("");
-            house.setLocation(location);
             house.setPrice(Double.parseDouble(price));
             house.setHouseType(type);
             house.setLat(latitude);
@@ -81,9 +79,6 @@ public class PostProperty extends AppCompatActivity {
             loader.setCanceledOnTouchOutside(false);
             loader.show();
             saveHouseToFirebase(house);
-            //take user to the next page
-            Intent intent = new Intent(this,UploadImages.class);
-            startActivity(intent);
         });
 
         //the previous button that will take the house owner to the previous page.

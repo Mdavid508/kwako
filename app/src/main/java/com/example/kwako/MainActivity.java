@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         db.collection("Houses").get().addOnSuccessListener(queryDocumentSnapshots -> {
-            ArrayList<House> houses = new ArrayList<>();
             for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots.getDocuments()){
                 if (!documentSnapshot.exists()){
                     Toast.makeText(this, "Unable to get houses", Toast.LENGTH_SHORT).show();
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 House house = documentSnapshot.toObject(House.class);
                 // get house owner
-                DocumentReference userRef = documentSnapshot.getDocumentReference("ownerRef");
+                DocumentReference userRef = db.document(house.getOwnerRef());
                 userRef.get().addOnSuccessListener(documentSnapshot1 -> {
                     if (!documentSnapshot1.exists()){
                         Toast.makeText(this, "House owner is empty", Toast.LENGTH_SHORT).show();

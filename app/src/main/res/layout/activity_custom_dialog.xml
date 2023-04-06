@@ -59,14 +59,14 @@
         android:textColor="@color/errors_color"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/customDialog"
-        app:layout_constraintEnd_toStartOf="@+id/tvconfirm"
+        app:layout_constraintEnd_toStartOf="@+id/tvConfirm"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView25"
         app:layout_constraintTop_toBottomOf="@+id/textView25"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvconfirm"
+        android:id="@+id/tvConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"

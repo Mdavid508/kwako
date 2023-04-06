@@ -2,6 +2,9 @@ package com.example.kwako.models;
 
 import android.net.Uri;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Image {
     String imageUrl, imageName;
     Uri imageUri;
@@ -39,5 +42,11 @@ public class Image {
     }
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public Map<String, Object> toMap(){
+        Map<String, Object> data = new HashMap<>();
+        data.put("imageUrl", imageUrl);
+        return data;
     }
 }

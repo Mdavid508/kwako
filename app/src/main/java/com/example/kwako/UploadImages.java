@@ -26,8 +26,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kwako.adapters.ImageUploadAdapter;
 import com.example.kwako.models.Image;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -55,6 +55,7 @@ public class UploadImages extends AppCompatActivity {
     Uri imageUri;
     private static final int REQUEST_IMAGE_CAPTURE = 1, REQUEST_IMAGE_PICK = 2, REQUEST_CAMERA_PERMISSION = 3;
     private String houseId; // House id of the current house
+    private int imagesUploaded = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +106,6 @@ public class UploadImages extends AppCompatActivity {
     private void uploadImage(Image image) {
         String imageName = UUID.randomUUID() + "." + getFileExtension(image.getImageUri());
         final StorageReference ref = imagesRef.child("images/" + imageName);
-        Toast.makeText(this, "Uploading image " + image.getImageName(), Toast.LENGTH_SHORT).show();
         UploadTask uploadTask = ref.putFile(image.getImageUri());
 
         uploadTask.addOnSuccessListener(taskSnapshot -> {
@@ -114,7 +114,6 @@ public class UploadImages extends AppCompatActivity {
             downloadUrlTask.addOnSuccessListener(uri -> {
                 // save information to firebase here
                 String imageURL = uri.toString();
-                Toast.makeText(this, "Image uploaded to firebase successfully: "+imageURL, Toast.LENGTH_SHORT).show();
                 // set image download URL
                 image.setImageUrl(imageURL);
                 // Save Image to FireStore
@@ -198,7 +197,6 @@ public class UploadImages extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     // image successfully captured
                     if (imageUri != null){
-                        Toast.makeText(this, "Image captured successfully", Toast.LENGTH_SHORT).show();
                         // display image to listView
                         Image image = new Image(imageFileName+".jpg", imageUri);
                         images.add(image);
@@ -213,7 +211,6 @@ public class UploadImages extends AppCompatActivity {
             case REQUEST_IMAGE_PICK: { // image from gallery
                 if (resultCode == RESULT_OK) {
                     Uri imageUri = data.getData();
-                    Toast.makeText(this, "Image picked successfully", Toast.LENGTH_SHORT).show();
                     // get picked image name
                     String[] filePathColumn = {MediaStore.Images.Media.DISPLAY_NAME};
                     Cursor cursor = getContentResolver().query(imageUri, filePathColumn, null, null, null);
@@ -252,8 +249,20 @@ public class UploadImages extends AppCompatActivity {
      * @param image Image you want to save its URL to firebase
      */
     private void uploadToFirebase(Image image) {
-        db.collection("Houses").document(houseId).collection("Images").document().set(image).addOnCompleteListener(task -> {
-            Toast.makeText(this, "Image Download URL saved to Firebase successfully", Toast.LENGTH_SHORT).show();
+        db.collection("Houses").document(houseId).update("images", FieldValue.arrayUnion(image.toMap())).addOnSuccessListener(task -> {
+
+            imagesUploaded += 1;
+
+            // check if all images have been uploaded successfully
+            if (imagesUploaded == images.size()) {
+                Toast.makeText(this, "All images uploaded to database", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UploadImages.this, HouseOwnerDashboard.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Error saving image to Database: "+e.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
 

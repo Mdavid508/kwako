@@ -54,7 +54,7 @@ public class HouseBooking extends AppCompatActivity {
 
 //        call to action textviews
         cancel = dialog.findViewById(R.id.tvcancel);
-        confirm = dialog.findViewById(R.id.tvconfirm);
+        confirm = dialog.findViewById(R.id.tvConfirm);
 
         cancel.setOnClickListener(v -> {
             //cancel returns one to the

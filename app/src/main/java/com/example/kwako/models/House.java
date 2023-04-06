@@ -123,7 +123,6 @@ public class House implements Parcelable {
     public Map<String, Object> toMap(){
         Map<String, Object> houseDetails = new HashMap<>();
         houseDetails.put("name", name);
-        houseDetails.put("location", location);
         houseDetails.put("price", price);
         houseDetails.put("houseType", houseType);
         houseDetails.put("images", images);
@@ -131,7 +130,6 @@ public class House implements Parcelable {
         houseDetails.put("lon", lon);
         houseDetails.put("isVerified", isVerified);
         houseDetails.put("isAvailable", isAvailable);
-        houseDetails.put("owner", owner);
         houseDetails.put("ownerRef", ownerRef);
         return houseDetails;
     }

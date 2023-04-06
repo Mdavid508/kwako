@@ -116,6 +116,9 @@
         <activity
             android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
+        <activity
+            android:name=".ActivityHouseBooking"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"

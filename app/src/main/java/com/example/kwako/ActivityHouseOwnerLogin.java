@@ -1,6 +1,5 @@
 package com.example.kwako;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kwako.models.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -74,7 +75,6 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
                 }
 
                 FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                Toast.makeText(this, "User Id; "+firebaseUser.getUid(), Toast.LENGTH_LONG).show();
                 db.collection("Users").document(firebaseUser.getUid()).get().addOnCompleteListener(task2 -> {
                     if (loader.isShowing()) loader.dismiss();
                     if (!task2.isSuccessful()){
@@ -84,8 +84,10 @@ public class ActivityHouseOwnerLogin extends AppCompatActivity {
 
                     // save user session and proceed to HouseOwner dashboard
                     User user = task2.getResult().toObject(User.class);
-                    if (user == null) return;
-                    Toast.makeText(ActivityHouseOwnerLogin.this, user.getUsername(), Toast.LENGTH_LONG).show();
+                    if (user == null) {
+                        Toast.makeText(this, "User not saved to FireStore.", Toast.LENGTH_SHORT).show();
+                        return;
+                    };
                     // verify if a house owner
                     if (!user.getUserType().equals(Constants.USER_TYPE_LANDLORD)){
                         Toast.makeText(this, "Only house owners can access this page. ", Toast.LENGTH_LONG).show();
