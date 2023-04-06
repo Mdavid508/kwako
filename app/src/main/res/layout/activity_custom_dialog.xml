@@ -7,7 +7,7 @@
     >
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/customDialog"
         android:layout_width="0dp"
         android:layout_height="180dp"
         android:layout_marginStart="16dp"
@@ -30,9 +30,9 @@
         android:text="Payment Confirmation"
         android:textFontWeight="500"
         android:textAppearance="@style/heading_1"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintEnd_toEndOf="@+id/customDialog"
+        app:layout_constraintStart_toStartOf="@+id/customDialog"
+        app:layout_constraintTop_toTopOf="@+id/customDialog" />
 
 
     <TextView
@@ -44,8 +44,8 @@
         android:layout_marginEnd="16dp"
         android:text=" 0769798443 will receive a pop up to make payment. You will be prompted to enter you Mpesa Pin to authorize payment of kshs 7000. When ready click Confirm to continue"
         android:textAppearance="@style/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/customDialog"
+        app:layout_constraintStart_toStartOf="@+id/customDialog"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
@@ -58,7 +58,7 @@
         android:textAppearance="@style/normal_text"
         android:textColor="@color/errors_color"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/customDialog"
         app:layout_constraintEnd_toStartOf="@+id/tvconfirm"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView25"
@@ -75,7 +75,7 @@
         android:text="Confirm"
         android:textAppearance="@style/normal_text"
         android:textColor="@color/accent_color"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/customDialog"
         app:layout_constraintEnd_toEndOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="@+id/textView25"
         app:layout_constraintTop_toBottomOf="@+id/textView25"

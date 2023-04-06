@@ -28,7 +28,7 @@
 
         <activity
 
-            android:name=".ActivityHouseBooking"
+            android:name=".HouseBooking"
             android:exported = "false"/>
         <activity
             android:name=".CustomerPayment"
@@ -49,7 +49,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}"
+            android:value="MAPS_API_KEY"
             />
 
         <activity
@@ -118,10 +118,7 @@
         <activity
             android:name=".ActivityHouseOwnerLogin"
             android:exported="false" />
-        <activity
-            android:name=".ActivityCustomerLogin"
-            android:exported="false"
-            tools:ignore="DuplicateActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -3,7 +3,6 @@ package com.example.kwako;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,7 +44,7 @@ public class AdminLogin extends AppCompatActivity {
         // Listener for the direct link button
 
         directLog.setOnClickListener(view -> {
-            Intent houseBook = new Intent(AdminLogin.this, ActivityHouseBooking.class);
+            Intent houseBook = new Intent(AdminLogin.this, HouseBooking.class);
             startActivity(houseBook);
         });
 
