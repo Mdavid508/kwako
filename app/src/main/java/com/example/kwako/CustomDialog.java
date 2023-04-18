@@ -2,6 +2,7 @@ package com.example.kwako;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class CustomDialog extends AppCompatActivity {
         // grab data from the previous intent
         Intent data = getIntent();
         reference = data.getStringExtra("ref");
+        Log.d("asena", reference);
 
 
         textViewResponse = findViewById(R.id.textView25);
@@ -70,11 +72,13 @@ public class CustomDialog extends AppCompatActivity {
                 if(response.code() == 404){
                     String transactionState = "Transaction Details : \n" + response.message();
                     Toast.makeText(CustomDialog.this, transactionState, Toast.LENGTH_SHORT).show();
+                    textViewResponse.setText(transactionState);
                     return;
                 }
                 if(data.getMpesaReceipt() == null){
                     String transactionState = "Transaction Details : \nPayment was not recieved" ;
                     Toast.makeText(CustomDialog.this, transactionState, Toast.LENGTH_SHORT).show();
+                    textViewResponse.setText(transactionState);
                     return;
                 }
                 String transactionState = "Transaction Details : \nYour Mpesa code is " +data.getMpesaReceipt()+", amount " +data.getAmount()+ "paid by "+data.getMsisdn();
