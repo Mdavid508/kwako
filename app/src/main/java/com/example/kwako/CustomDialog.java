@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ShareCompat;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +41,7 @@ public class CustomDialog extends AppCompatActivity {
         tvConfirm.setOnClickListener(view -> {
             if(reference.isEmpty()){
                 Toast.makeText(CustomDialog.this, "Missing Parameters", Toast.LENGTH_SHORT).show();
+
                 return;
             }
             checkResponse(reference);
@@ -73,16 +75,27 @@ public class CustomDialog extends AppCompatActivity {
                     String transactionState = "Transaction Details : \n" + response.message();
                     Toast.makeText(CustomDialog.this, transactionState, Toast.LENGTH_SHORT).show();
                     textViewResponse.setText(transactionState);
+
+                    // Move to the booked changes
+                    Intent customerPayment = new Intent(CustomDialog.this, UserDashboard.class);
+                    startActivity(customerPayment);
                     return;
                 }
                 if(data.getMpesaReceipt() == null){
                     String transactionState = "Transaction Details : \nPayment was not recieved" ;
                     Toast.makeText(CustomDialog.this, transactionState, Toast.LENGTH_SHORT).show();
                     textViewResponse.setText(transactionState);
+
+                    // Move to the booked changes
+                    Intent customerPayment = new Intent(CustomDialog.this, UserDashboard.class);
+                    startActivity(customerPayment);
                     return;
                 }
                 String transactionState = "Transaction Details : \nYour Mpesa code is " +data.getMpesaReceipt()+", amount " +data.getAmount()+ "paid by "+data.getMsisdn();
                 textViewResponse.setText(transactionState);
+                // Move to the booked changes
+                Intent customerPayment = new Intent(CustomDialog.this, UserDashboard.class);
+                startActivity(customerPayment);
             }
 
             @Override
